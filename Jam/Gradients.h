@@ -14,7 +14,8 @@
 @interface Gradients : NSObject
 
 +(CAGradientLayer*) backgroundGradient;
-+(CAGradientLayer*) buttonGradient;
++(CAGradientLayer*) mainBtnGradient;
++(CAGradientLayer*) blueBtnGradient;
 
 @end
 

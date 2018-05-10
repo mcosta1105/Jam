@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self setGradients];
+    
 }
 
 
@@ -31,6 +32,7 @@
     gradientLayer.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     [self.view.layer insertSublayer:gradientLayer atIndex:0];
 }
+
 
 
 @end
