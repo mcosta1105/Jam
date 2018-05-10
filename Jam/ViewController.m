@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [self setGradients];
 }
 
 
@@ -25,5 +26,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)setGradients{
+    CAGradientLayer *gradientLayer = [Gradients backgroundGradient];
+    gradientLayer.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [self.view.layer insertSublayer:gradientLayer atIndex:0];
+}
+
 
 @end
+

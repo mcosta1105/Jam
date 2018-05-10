@@ -15,6 +15,7 @@
 		98FFB2B020A40EEF00364C6F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FFB2AF20A40EEF00364C6F /* main.m */; };
 		98FFB2BA20A40EEF00364C6F /* JamTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FFB2B920A40EEF00364C6F /* JamTests.m */; };
 		98FFB2C520A40EEF00364C6F /* JamUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FFB2C420A40EEF00364C6F /* JamUITests.m */; };
+		98FFB2D420A4108700364C6F /* Gradients.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FFB2D320A4108700364C6F /* Gradients.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		98FFB2C020A40EEF00364C6F /* JamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98FFB2C420A40EEF00364C6F /* JamUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JamUITests.m; sourceTree = "<group>"; };
 		98FFB2C620A40EEF00364C6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98FFB2D220A4108700364C6F /* Gradients.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gradients.h; sourceTree = "<group>"; };
+		98FFB2D320A4108700364C6F /* Gradients.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Gradients.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				98FFB2AB20A40EEF00364C6F /* LaunchScreen.storyboard */,
 				98FFB2AE20A40EEF00364C6F /* Info.plist */,
 				98FFB2AF20A40EEF00364C6F /* main.m */,
+				98FFB2D220A4108700364C6F /* Gradients.h */,
+				98FFB2D320A4108700364C6F /* Gradients.m */,
 			);
 			path = Jam;
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 				98FFB2A520A40EEF00364C6F /* ViewController.m in Sources */,
 				98FFB2B020A40EEF00364C6F /* main.m in Sources */,
 				98FFB2A220A40EEF00364C6F /* AppDelegate.m in Sources */,
+				98FFB2D420A4108700364C6F /* Gradients.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

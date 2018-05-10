@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Gradients.h"
 
 @interface ViewController : UIViewController
 
