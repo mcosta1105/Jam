@@ -19,6 +19,23 @@
     // Do any additional setup after loading the view, typically from a nib.
     [self setGradients];
     
+    
+    UIImageView *userIcon = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 25, 25)];
+    
+    [userIcon setImage:[UIImage imageNamed:@"userIcon"]];
+    
+    [userIcon setContentMode:UIViewContentModeScaleAspectFill];
+    self.emailTextField.leftView = userIcon;
+    self.emailTextField.leftViewMode = UITextFieldViewModeAlways;
+    
+    UIImageView *padLockIcon = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 25, 25)];
+    [padLockIcon setImage:[UIImage imageNamed:@"padlock"]];
+    
+    [padLockIcon setContentMode:UIViewContentModeScaleAspectFill];
+    self.passwordTextField.leftView = padLockIcon;
+    self.passwordTextField.leftViewMode =UITextFieldViewModeAlways;
+    
+    
 }
 
 
