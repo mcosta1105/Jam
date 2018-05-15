@@ -13,13 +13,13 @@
 -(void)setIcon:(NSString *)name forTextField:(UITextField *)textField{
     
     //Set frame
-    UIImageView * icon = [[UIImageView alloc] initWithFrame: CGRectMake(0, 0, 25, 25)];
+    UIImageView * icon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
     
     //Set icon
     [icon setImage:[UIImage imageNamed:name]];
     
     //Set content
-    [icon setContentMode:UIViewContentModeScaleToFill];
+    [icon setContentMode:UIViewContentModeScaleAspectFill];
     
     //Place icon on text field
     textField.leftView = icon;
