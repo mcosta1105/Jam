@@ -34,7 +34,7 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xay-3f-Dal">
-                                                <rect key="frame" x="60" y="360" width="200" height="40"/>
+                                                <rect key="frame" x="60" y="347" width="200" height="40"/>
                                                 <color key="backgroundColor" red="0.83529411764705885" green="0.2627450980392157" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="JZb-UR-dnj"/>
@@ -50,18 +50,19 @@
                                                     <segue destination="WdW-mA-T0y" kind="show" id="wQO-zC-J96"/>
                                                 </connections>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N7k-qr-xVV">
-                                                <rect key="frame" x="35" y="201" width="250" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N7k-qr-xVV">
+                                                <rect key="frame" x="35" y="201" width="250" height="40"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="emailTextField"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="0JM-3I-mRy"/>
+                                                    <constraint firstAttribute="height" constant="40" id="YVL-dW-FzZ"/>
                                                 </constraints>
                                                 <color key="textColor" red="0.83529411760000005" green="0.26274509800000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T22-l6-tOO">
-                                                <rect key="frame" x="8" y="424" width="304" height="30"/>
+                                                <rect key="frame" x="8" y="411" width="304" height="30"/>
                                                 <color key="tintColor" red="0.59215686274509804" green="0.36078431372549019" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="or Sign Up"/>
                                                 <connections>
@@ -69,7 +70,7 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WId-iL-qxT">
-                                                <rect key="frame" x="35" y="278" width="250" height="30"/>
+                                                <rect key="frame" x="35" y="265" width="250" height="30"/>
                                                 <color key="textColor" red="0.83529411760000005" green="0.26274509800000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -99,7 +100,7 @@
                                             <constraint firstItem="xRo-97-u3f" firstAttribute="trailing" secondItem="9HV-oS-WHd" secondAttribute="trailingMargin" constant="-1" id="bcb-OA-Zy1"/>
                                             <constraint firstItem="xRo-97-u3f" firstAttribute="top" relation="lessThanOrEqual" secondItem="T22-l6-tOO" secondAttribute="bottom" constant="120" id="hnx-Bp-NuW"/>
                                             <constraint firstItem="xay-3f-Dal" firstAttribute="top" secondItem="WId-iL-qxT" secondAttribute="bottom" constant="52" id="oW5-ho-wAU"/>
-                                            <constraint firstItem="WId-iL-qxT" firstAttribute="top" secondItem="N7k-qr-xVV" secondAttribute="bottom" constant="47" id="s5g-tj-jXg"/>
+                                            <constraint firstItem="WId-iL-qxT" firstAttribute="top" secondItem="N7k-qr-xVV" secondAttribute="bottom" constant="24" id="s5g-tj-jXg"/>
                                             <constraint firstItem="T22-l6-tOO" firstAttribute="top" secondItem="xay-3f-Dal" secondAttribute="bottom" constant="24" id="u7g-6E-zHh"/>
                                         </constraints>
                                     </scrollView>
@@ -225,6 +226,11 @@
                                                 <color key="textColor" red="0.83529411760000005" green="0.26274509800000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.83321845531463623" green="0.0" blue="0.83321845531463623" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Confirm Password" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BOj-86-83Z">
                                                 <rect key="frame" x="8" y="271" width="304" height="30"/>
