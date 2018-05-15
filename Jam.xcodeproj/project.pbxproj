@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		98AA3FC220AA485A00601D7D /* SignUP.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AA3FC120AA485A00601D7D /* SignUP.m */; };
+		98AA3FC520AA65EA00601D7D /* InputIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AA3FC420AA65EA00601D7D /* InputIcons.m */; };
 		98FFB2A220A40EEF00364C6F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FFB2A120A40EEF00364C6F /* AppDelegate.m */; };
 		98FFB2A520A40EEF00364C6F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FFB2A420A40EEF00364C6F /* ViewController.m */; };
 		98FFB2A820A40EEF00364C6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98FFB2A620A40EEF00364C6F /* Main.storyboard */; };
@@ -36,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		98AA3FC020AA485A00601D7D /* SignUP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUP.h; sourceTree = "<group>"; };
+		98AA3FC120AA485A00601D7D /* SignUP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUP.m; sourceTree = "<group>"; };
+		98AA3FC320AA65EA00601D7D /* InputIcons.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputIcons.h; sourceTree = "<group>"; };
+		98AA3FC420AA65EA00601D7D /* InputIcons.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputIcons.m; sourceTree = "<group>"; };
 		98FFB29D20A40EEF00364C6F /* Jam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98FFB2A020A40EEF00364C6F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		98FFB2A120A40EEF00364C6F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -115,6 +121,10 @@
 				98FFB2AF20A40EEF00364C6F /* main.m */,
 				98FFB2D220A4108700364C6F /* Gradients.h */,
 				98FFB2D320A4108700364C6F /* Gradients.m */,
+				98AA3FC020AA485A00601D7D /* SignUP.h */,
+				98AA3FC120AA485A00601D7D /* SignUP.m */,
+				98AA3FC320AA65EA00601D7D /* InputIcons.h */,
+				98AA3FC420AA65EA00601D7D /* InputIcons.m */,
 			);
 			path = Jam;
 			sourceTree = "<group>";
@@ -271,7 +281,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				98FFB2A520A40EEF00364C6F /* ViewController.m in Sources */,
+				98AA3FC220AA485A00601D7D /* SignUP.m in Sources */,
 				98FFB2B020A40EEF00364C6F /* main.m in Sources */,
+				98AA3FC520AA65EA00601D7D /* InputIcons.m in Sources */,
 				98FFB2A220A40EEF00364C6F /* AppDelegate.m in Sources */,
 				98FFB2D420A4108700364C6F /* Gradients.m in Sources */,
 			);
