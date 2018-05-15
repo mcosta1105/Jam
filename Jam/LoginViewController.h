@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Gradients.h"
+#import "InputIcons.h"
 
-@interface ViewController : UIViewController
+@interface LoginViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -17,4 +18,3 @@
 
 
 @end
-

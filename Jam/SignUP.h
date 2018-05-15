@@ -12,5 +12,6 @@
 @interface SignUP : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIButton *signupBtn;
+@property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
 
 @end

@@ -13,12 +13,12 @@
 @end
 
 @implementation SignUP
+@synthesize signupBtn, cancelBtn;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setGradients];
-    [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,13 +42,17 @@
     gradientLayer.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     [self.view.layer insertSublayer:gradientLayer atIndex:0];
     
-    //Button gradient
-    CAGradientLayer *btnGradientLayer = [Gradients mainBtnGradient];
-    btnGradientLayer.frame = _signupBtn.layer.bounds;
-    btnGradientLayer.cornerRadius = _signupBtn.layer.cornerRadius;
-    [_signupBtn.layer addSublayer:btnGradientLayer];
+    //SignUp Button gradient
+    CAGradientLayer *signUpBtnLayer = [Gradients mainBtnGradient];
+    signUpBtnLayer.frame = signupBtn.layer.bounds;
+    signUpBtnLayer.cornerRadius = signupBtn.layer.cornerRadius;
+    [signupBtn.layer addSublayer:signUpBtnLayer];
     
-    
+    //Cancel Button gradient
+    CAGradientLayer * cancelBtnLayer = [Gradients blueBtnGradient];
+    cancelBtnLayer.frame = cancelBtn.layer.bounds;
+    cancelBtnLayer.cornerRadius = cancelBtn.layer.cornerRadius;
+    [cancelBtn.layer addSublayer:cancelBtnLayer];
 
 }
 
