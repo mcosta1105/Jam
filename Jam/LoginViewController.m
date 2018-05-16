@@ -46,14 +46,12 @@
 -(void)setIcons{
     //Email
     InputIcons * email = [InputIcons alloc];
-    [email setIcon:@"userIcon" forTextField:emailTextField];
+    [email setIcon:@"user" forTextField:emailTextField];
     //Password
     InputIcons * password = [InputIcons alloc];
     [password setIcon:@"padlock" forTextField:passwordTextField];
     
 }
-
-
 
 
 @end

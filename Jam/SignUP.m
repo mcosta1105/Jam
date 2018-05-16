@@ -13,12 +13,13 @@
 @end
 
 @implementation SignUP
-@synthesize signupBtn, cancelBtn;
+@synthesize signupBtn, cancelBtn, nameTextField, emailTextField, passwordTextField, confirmPasswordTextField ;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setGradients];
+    [self setIcons];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,6 +55,21 @@
     cancelBtnLayer.cornerRadius = cancelBtn.layer.cornerRadius;
     [cancelBtn.layer addSublayer:cancelBtnLayer];
 
+}
+
+-(void)setIcons{
+    //name
+    InputIcons * name = [InputIcons alloc];
+    [name setIcon:@"user" forTextField:nameTextField];
+    
+    InputIcons * email = [InputIcons alloc];
+    [email setIcon:@"email" forTextField:emailTextField];
+    
+    InputIcons * password = [InputIcons alloc];
+    [password setIcon:@"padlock" forTextField:passwordTextField];
+    
+    InputIcons * confirm = [InputIcons alloc];
+    [confirm setIcon:@"padlock" forTextField:confirmPasswordTextField];
 }
 
 @end

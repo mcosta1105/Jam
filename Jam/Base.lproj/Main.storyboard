@@ -299,6 +299,10 @@
                     </view>
                     <connections>
                         <outlet property="cancelBtn" destination="VFk-Bt-e9L" id="yG7-7x-W9E"/>
+                        <outlet property="confirmPasswordTextField" destination="BOj-86-83Z" id="NLY-5y-iwy"/>
+                        <outlet property="emailTextField" destination="rFO-xS-Anx" id="Ocd-gE-7v3"/>
+                        <outlet property="nameTextField" destination="8O4-A1-fAY" id="XEt-Jy-YYo"/>
+                        <outlet property="passwordTextField" destination="Qcg-8R-g4q" id="aUC-WY-xef"/>
                         <outlet property="signupBtn" destination="CTu-HA-Onc" id="g9f-Ut-Cjq"/>
                     </connections>
                 </viewController>
