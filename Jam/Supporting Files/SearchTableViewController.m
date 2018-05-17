@@ -22,7 +22,7 @@
     
     _data = [NSMutableArray array];
     
-    NSInteger numberOfItems = 4;
+    NSInteger numberOfItems = 5;
     
     for(NSInteger i = 1; i <= numberOfItems; i++){
         Post *myPost = [[Post alloc]init];
@@ -57,6 +57,15 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"SearchTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
     SearchTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
+    
+    
+    Post *item = [_data objectAtIndex:indexPath.row];
+    cell.titleLabel.text = [item title];
+    cell.timeLabel.text = [item time];
+    cell.addressLabel.text = [item address];
+    cell.dateLabel.text = [item date];
+    
+    return  cell;
     
 }
 /*
