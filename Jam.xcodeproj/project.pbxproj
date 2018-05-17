@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9815F25020AC1638001AC7B1 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9815F24E20AC1638001AC7B1 /* SearchTableViewCell.xib */; };
+		98339A6520ACF2C4001C91B1 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98339A6420ACF2C4001C91B1 /* SearchTableViewCell.m */; };
+		98339A6920ACF968001C91B1 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 98339A6820ACF968001C91B1 /* Post.m */; };
+		98339A6C20ACFF6D001C91B1 /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98339A6B20ACFF6D001C91B1 /* SearchTableViewController.m */; };
 		98AA3FC220AA485A00601D7D /* SignUP.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AA3FC120AA485A00601D7D /* SignUP.m */; };
 		98AA3FC520AA65EA00601D7D /* InputIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AA3FC420AA65EA00601D7D /* InputIcons.m */; };
 		98FFB2A220A40EEF00364C6F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FFB2A120A40EEF00364C6F /* AppDelegate.m */; };
@@ -38,6 +42,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9815F24E20AC1638001AC7B1 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
+		98339A6320ACF2C4001C91B1 /* SearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
+		98339A6420ACF2C4001C91B1 /* SearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
+		98339A6720ACF968001C91B1 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		98339A6820ACF968001C91B1 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		98339A6A20ACFF6D001C91B1 /* SearchTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
+		98339A6B20ACFF6D001C91B1 /* SearchTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
 		98AA3FC020AA485A00601D7D /* SignUP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUP.h; sourceTree = "<group>"; };
 		98AA3FC120AA485A00601D7D /* SignUP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUP.m; sourceTree = "<group>"; };
 		98AA3FC320AA65EA00601D7D /* InputIcons.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputIcons.h; sourceTree = "<group>"; };
@@ -87,6 +98,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		98339A6620ACF917001C91B1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9815F24E20AC1638001AC7B1 /* SearchTableViewCell.xib */,
+				98339A6320ACF2C4001C91B1 /* SearchTableViewCell.h */,
+				98339A6420ACF2C4001C91B1 /* SearchTableViewCell.m */,
+				98339A6720ACF968001C91B1 /* Post.h */,
+				98339A6820ACF968001C91B1 /* Post.m */,
+				98339A6A20ACFF6D001C91B1 /* SearchTableViewController.h */,
+				98339A6B20ACFF6D001C91B1 /* SearchTableViewController.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		98FFB29420A40EEF00364C6F = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +150,7 @@
 				98AA3FC120AA485A00601D7D /* SignUP.m */,
 				98AA3FC320AA65EA00601D7D /* InputIcons.h */,
 				98AA3FC420AA65EA00601D7D /* InputIcons.m */,
+				98339A6620ACF917001C91B1 /* Supporting Files */,
 			);
 			path = Jam;
 			sourceTree = "<group>";
@@ -256,6 +282,7 @@
 				98FFB2AD20A40EEF00364C6F /* LaunchScreen.storyboard in Resources */,
 				98FFB2AA20A40EEF00364C6F /* Assets.xcassets in Resources */,
 				98FFB2A820A40EEF00364C6F /* Main.storyboard in Resources */,
+				9815F25020AC1638001AC7B1 /* SearchTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,8 +307,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98339A6C20ACFF6D001C91B1 /* SearchTableViewController.m in Sources */,
+				98339A6520ACF2C4001C91B1 /* SearchTableViewCell.m in Sources */,
 				98FFB2A520A40EEF00364C6F /* LoginViewController.m in Sources */,
 				98AA3FC220AA485A00601D7D /* SignUP.m in Sources */,
+				98339A6920ACF968001C91B1 /* Post.m in Sources */,
 				98FFB2B020A40EEF00364C6F /* main.m in Sources */,
 				98AA3FC520AA65EA00601D7D /* InputIcons.m in Sources */,
 				98FFB2A220A40EEF00364C6F /* AppDelegate.m in Sources */,
