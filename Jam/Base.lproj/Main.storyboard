@@ -158,10 +158,28 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="4Zk-f8-hSA"/>
+                    <connections>
+                        <segue destination="63f-qF-tZG" kind="show" identifier="post" id="fxc-kI-dvp"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uaK-Le-evn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3381.5999999999999" y="-2111.6941529235382"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="kPN-iP-hs8">
+            <objects>
+                <viewController id="63f-qF-tZG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zwl-9u-1hG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="g5R-Mu-AWU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Db-G1-TYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4332" y="-2112"/>
         </scene>
         <!--Add Jam-->
         <scene sceneID="IKG-0c-WCv">

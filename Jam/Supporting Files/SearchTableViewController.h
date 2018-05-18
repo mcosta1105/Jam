@@ -10,6 +10,7 @@
 #import "SearchTableViewCell.h"
 #import "Post.h"
 
+
 @interface SearchTableViewController : UITableViewController
 {
     NSMutableArray * _data;

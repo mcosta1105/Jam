@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,14 +34,14 @@
                             <constraint firstAttribute="width" secondItem="QEH-Mi-O9i" secondAttribute="height" multiplier="1:1" id="XY2-Gb-oen"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="at" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Two-xy-BYe">
-                        <rect key="frame" x="174" y="77" width="54" height="25"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="at" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Two-xy-BYe">
+                        <rect key="frame" x="135.5" y="77" width="11" height="25"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKI-z7-6HA">
-                        <rect key="frame" x="49" y="77" width="117" height="25"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of a Jam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKI-z7-6HA">
+                        <rect key="frame" x="49" y="77" width="78.5" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="boc-Pm-KxK"/>
                         </constraints>
@@ -49,8 +49,8 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bzj-oC-loU">
-                        <rect key="frame" x="236" y="77" width="123" height="25"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time of a Jam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bzj-oC-loU">
+                        <rect key="frame" x="154.5" y="77" width="79.5" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="Bhl-oZ-u0Z"/>
                         </constraints>
@@ -81,9 +81,11 @@
                     <constraint firstItem="QEH-Mi-O9i" firstAttribute="top" secondItem="7P2-To-6v9" secondAttribute="bottom" constant="10" id="IP2-r7-TjP"/>
                     <constraint firstItem="Bzj-oC-loU" firstAttribute="leading" secondItem="Two-xy-BYe" secondAttribute="trailing" constant="8" id="KNo-jZ-sBX"/>
                     <constraint firstItem="7P2-To-6v9" firstAttribute="leading" secondItem="jy7-xP-CZR" secondAttribute="leading" constant="16" id="M7k-jD-Po5"/>
+                    <constraint firstItem="QEH-Mi-O9i" firstAttribute="width" secondItem="7P2-To-6v9" secondAttribute="width" id="MhA-WA-W0b"/>
                     <constraint firstItem="2vZ-6n-VBo" firstAttribute="centerY" secondItem="7P2-To-6v9" secondAttribute="centerY" id="RkJ-0E-zHb"/>
                     <constraint firstItem="Two-xy-BYe" firstAttribute="top" secondItem="2vZ-6n-VBo" secondAttribute="bottom" constant="10" id="Tjj-5k-lmx"/>
                     <constraint firstItem="Two-xy-BYe" firstAttribute="centerY" secondItem="Bzj-oC-loU" secondAttribute="centerY" id="TzI-Ye-nT3"/>
+                    <constraint firstItem="QEH-Mi-O9i" firstAttribute="centerX" secondItem="7P2-To-6v9" secondAttribute="centerX" id="Wux-OX-HMV"/>
                     <constraint firstItem="ZKI-z7-6HA" firstAttribute="leading" secondItem="QEH-Mi-O9i" secondAttribute="trailing" constant="8" id="XvB-Uh-AkT"/>
                     <constraint firstItem="QEH-Mi-O9i" firstAttribute="leading" secondItem="jy7-xP-CZR" secondAttribute="leading" constant="16" id="c9R-QF-gch"/>
                     <constraint firstItem="2vZ-6n-VBo" firstAttribute="leading" secondItem="7P2-To-6v9" secondAttribute="trailing" constant="8" id="dD1-qi-O3K"/>
