@@ -17,7 +17,7 @@
     self.contentView.layer.masksToBounds = YES;
     self.contentView.layer.cornerRadius = 5;
     self.contentView.layer.borderColor = [UIColor colorWithRed:(213/255.0) green:(67/255.0) blue:(147/255.0) alpha:1.0].CGColor;
-    self.contentView.frame = UIEdgeInsetsInsetRect(self.contentView.frame, UIEdgeInsetsMake(10, 10, 10, 10));
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -29,4 +29,5 @@
 -(void)layoutSubviews{
     self.contentView.frame = UIEdgeInsetsInsetRect(self.contentView.frame, UIEdgeInsetsMake(5, 5, 5, 5));
 }
+
 @end

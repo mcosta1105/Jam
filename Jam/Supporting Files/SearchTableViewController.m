@@ -34,6 +34,7 @@
         [_data addObject:myPost];
     }
     NSLog(@"%@", _data);
+    
 }
 
 - (void)didReceiveMemoryWarning {
