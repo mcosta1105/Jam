@@ -10,7 +10,7 @@
 #import "Gradients.h"
 #import "InputIcons.h"
 
-@interface SignUP : UIViewController
+@interface SignUPViewController : UIViewController
 //Buttons
 @property (weak, nonatomic) IBOutlet UIButton *signupBtn;
 @property (weak, nonatomic) IBOutlet UIButton *cancelBtn;

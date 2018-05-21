@@ -11,7 +11,8 @@
 		98339A6520ACF2C4001C91B1 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98339A6420ACF2C4001C91B1 /* SearchTableViewCell.m */; };
 		98339A6920ACF968001C91B1 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 98339A6820ACF968001C91B1 /* Post.m */; };
 		98339A6C20ACFF6D001C91B1 /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98339A6B20ACFF6D001C91B1 /* SearchTableViewController.m */; };
-		98AA3FC220AA485A00601D7D /* SignUP.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AA3FC120AA485A00601D7D /* SignUP.m */; };
+		98A6FD6420B2655D00C944B5 /* JamDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A6FD6320B2655D00C944B5 /* JamDetailsViewController.m */; };
+		98AA3FC220AA485A00601D7D /* SignUPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AA3FC120AA485A00601D7D /* SignUPViewController.m */; };
 		98AA3FC520AA65EA00601D7D /* InputIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AA3FC420AA65EA00601D7D /* InputIcons.m */; };
 		98FFB2A220A40EEF00364C6F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FFB2A120A40EEF00364C6F /* AppDelegate.m */; };
 		98FFB2A520A40EEF00364C6F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FFB2A420A40EEF00364C6F /* LoginViewController.m */; };
@@ -49,8 +50,10 @@
 		98339A6820ACF968001C91B1 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		98339A6A20ACFF6D001C91B1 /* SearchTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
 		98339A6B20ACFF6D001C91B1 /* SearchTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
-		98AA3FC020AA485A00601D7D /* SignUP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUP.h; sourceTree = "<group>"; };
-		98AA3FC120AA485A00601D7D /* SignUP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUP.m; sourceTree = "<group>"; };
+		98A6FD6220B2655D00C944B5 /* JamDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JamDetailsViewController.h; sourceTree = "<group>"; };
+		98A6FD6320B2655D00C944B5 /* JamDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JamDetailsViewController.m; sourceTree = "<group>"; };
+		98AA3FC020AA485A00601D7D /* SignUPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUPViewController.h; sourceTree = "<group>"; };
+		98AA3FC120AA485A00601D7D /* SignUPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUPViewController.m; sourceTree = "<group>"; };
 		98AA3FC320AA65EA00601D7D /* InputIcons.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputIcons.h; sourceTree = "<group>"; };
 		98AA3FC420AA65EA00601D7D /* InputIcons.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputIcons.m; sourceTree = "<group>"; };
 		98AA3FC720AA7C3D00601D7D /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -146,10 +149,12 @@
 				98FFB2AF20A40EEF00364C6F /* main.m */,
 				98FFB2D220A4108700364C6F /* Gradients.h */,
 				98FFB2D320A4108700364C6F /* Gradients.m */,
-				98AA3FC020AA485A00601D7D /* SignUP.h */,
-				98AA3FC120AA485A00601D7D /* SignUP.m */,
+				98AA3FC020AA485A00601D7D /* SignUPViewController.h */,
+				98AA3FC120AA485A00601D7D /* SignUPViewController.m */,
 				98AA3FC320AA65EA00601D7D /* InputIcons.h */,
 				98AA3FC420AA65EA00601D7D /* InputIcons.m */,
+				98A6FD6220B2655D00C944B5 /* JamDetailsViewController.h */,
+				98A6FD6320B2655D00C944B5 /* JamDetailsViewController.m */,
 				98339A6620ACF917001C91B1 /* Supporting Files */,
 			);
 			path = Jam;
@@ -309,8 +314,9 @@
 			files = (
 				98339A6C20ACFF6D001C91B1 /* SearchTableViewController.m in Sources */,
 				98339A6520ACF2C4001C91B1 /* SearchTableViewCell.m in Sources */,
+				98A6FD6420B2655D00C944B5 /* JamDetailsViewController.m in Sources */,
 				98FFB2A520A40EEF00364C6F /* LoginViewController.m in Sources */,
-				98AA3FC220AA485A00601D7D /* SignUP.m in Sources */,
+				98AA3FC220AA485A00601D7D /* SignUPViewController.m in Sources */,
 				98339A6920ACF968001C91B1 /* Post.m in Sources */,
 				98FFB2B020A40EEF00364C6F /* main.m in Sources */,
 				98AA3FC520AA65EA00601D7D /* InputIcons.m in Sources */,

@@ -6,13 +6,13 @@
 //  Copyright © 2018 5661. All rights reserved.
 //
 
-#import "SignUP.h"
+#import "SignUPViewController.h"
 
-@interface SignUP ()
+@interface SignUPViewController ()
 
 @end
 
-@implementation SignUP
+@implementation SignUPViewController
 @synthesize signupBtn, cancelBtn, nameTextField, emailTextField, passwordTextField, confirmPasswordTextField ;
 
 - (void)viewDidLoad {

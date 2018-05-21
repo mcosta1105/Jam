@@ -35,6 +35,8 @@
     }
     NSLog(@"%@", _data);
     
+    self.navigationController.navigationBarHidden = YES;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,9 +73,11 @@
 }
 
 //click on cell
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [self performSegueWithIdentifier:@"jamDetails" sender:self];
 }
+
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
@@ -118,14 +122,14 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
+        [segue destinationViewController];
     // Pass the selected object to the new view controller.
 }
-*/
 
 @end
