@@ -12,6 +12,11 @@
 		98339A6920ACF968001C91B1 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 98339A6820ACF968001C91B1 /* Post.m */; };
 		98339A6C20ACFF6D001C91B1 /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98339A6B20ACFF6D001C91B1 /* SearchTableViewController.m */; };
 		98A6FD6420B2655D00C944B5 /* JamDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A6FD6320B2655D00C944B5 /* JamDetailsViewController.m */; };
+		98A6FD6720B2950000C944B5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A6FD6620B2950000C944B5 /* ProfileViewController.m */; };
+		98A6FD6A20B29AB400C944B5 /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A6FD6920B29AB400C944B5 /* MessageTableViewController.m */; };
+		98A6FD6E20B29ADB00C944B5 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A6FD6C20B29ADB00C944B5 /* MessageTableViewCell.m */; };
+		98A6FD6F20B29ADB00C944B5 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98A6FD6D20B29ADB00C944B5 /* MessageTableViewCell.xib */; };
+		98A6FD7220B29CE100C944B5 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A6FD7120B29CE100C944B5 /* Message.m */; };
 		98AA3FC220AA485A00601D7D /* SignUPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AA3FC120AA485A00601D7D /* SignUPViewController.m */; };
 		98AA3FC520AA65EA00601D7D /* InputIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 98AA3FC420AA65EA00601D7D /* InputIcons.m */; };
 		98FFB2A220A40EEF00364C6F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FFB2A120A40EEF00364C6F /* AppDelegate.m */; };
@@ -52,6 +57,15 @@
 		98339A6B20ACFF6D001C91B1 /* SearchTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
 		98A6FD6220B2655D00C944B5 /* JamDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JamDetailsViewController.h; sourceTree = "<group>"; };
 		98A6FD6320B2655D00C944B5 /* JamDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JamDetailsViewController.m; sourceTree = "<group>"; };
+		98A6FD6520B2950000C944B5 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		98A6FD6620B2950000C944B5 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		98A6FD6820B29AB400C944B5 /* MessageTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTableViewController.h; sourceTree = "<group>"; };
+		98A6FD6920B29AB400C944B5 /* MessageTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewController.m; sourceTree = "<group>"; };
+		98A6FD6B20B29ADB00C944B5 /* MessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
+		98A6FD6C20B29ADB00C944B5 /* MessageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
+		98A6FD6D20B29ADB00C944B5 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
+		98A6FD7020B29CE100C944B5 /* Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		98A6FD7120B29CE100C944B5 /* Message.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		98AA3FC020AA485A00601D7D /* SignUPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUPViewController.h; sourceTree = "<group>"; };
 		98AA3FC120AA485A00601D7D /* SignUPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUPViewController.m; sourceTree = "<group>"; };
 		98AA3FC320AA65EA00601D7D /* InputIcons.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputIcons.h; sourceTree = "<group>"; };
@@ -111,6 +125,13 @@
 				98339A6820ACF968001C91B1 /* Post.m */,
 				98339A6A20ACFF6D001C91B1 /* SearchTableViewController.h */,
 				98339A6B20ACFF6D001C91B1 /* SearchTableViewController.m */,
+				98A6FD6820B29AB400C944B5 /* MessageTableViewController.h */,
+				98A6FD6920B29AB400C944B5 /* MessageTableViewController.m */,
+				98A6FD6B20B29ADB00C944B5 /* MessageTableViewCell.h */,
+				98A6FD6C20B29ADB00C944B5 /* MessageTableViewCell.m */,
+				98A6FD6D20B29ADB00C944B5 /* MessageTableViewCell.xib */,
+				98A6FD7020B29CE100C944B5 /* Message.h */,
+				98A6FD7120B29CE100C944B5 /* Message.m */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -155,6 +176,8 @@
 				98AA3FC420AA65EA00601D7D /* InputIcons.m */,
 				98A6FD6220B2655D00C944B5 /* JamDetailsViewController.h */,
 				98A6FD6320B2655D00C944B5 /* JamDetailsViewController.m */,
+				98A6FD6520B2950000C944B5 /* ProfileViewController.h */,
+				98A6FD6620B2950000C944B5 /* ProfileViewController.m */,
 				98339A6620ACF917001C91B1 /* Supporting Files */,
 			);
 			path = Jam;
@@ -286,6 +309,7 @@
 			files = (
 				98FFB2AD20A40EEF00364C6F /* LaunchScreen.storyboard in Resources */,
 				98FFB2AA20A40EEF00364C6F /* Assets.xcassets in Resources */,
+				98A6FD6F20B29ADB00C944B5 /* MessageTableViewCell.xib in Resources */,
 				98FFB2A820A40EEF00364C6F /* Main.storyboard in Resources */,
 				9815F25020AC1638001AC7B1 /* SearchTableViewCell.xib in Resources */,
 			);
@@ -315,13 +339,17 @@
 				98339A6C20ACFF6D001C91B1 /* SearchTableViewController.m in Sources */,
 				98339A6520ACF2C4001C91B1 /* SearchTableViewCell.m in Sources */,
 				98A6FD6420B2655D00C944B5 /* JamDetailsViewController.m in Sources */,
+				98A6FD7220B29CE100C944B5 /* Message.m in Sources */,
 				98FFB2A520A40EEF00364C6F /* LoginViewController.m in Sources */,
 				98AA3FC220AA485A00601D7D /* SignUPViewController.m in Sources */,
 				98339A6920ACF968001C91B1 /* Post.m in Sources */,
 				98FFB2B020A40EEF00364C6F /* main.m in Sources */,
 				98AA3FC520AA65EA00601D7D /* InputIcons.m in Sources */,
+				98A6FD6720B2950000C944B5 /* ProfileViewController.m in Sources */,
 				98FFB2A220A40EEF00364C6F /* AppDelegate.m in Sources */,
+				98A6FD6E20B29ADB00C944B5 /* MessageTableViewCell.m in Sources */,
 				98FFB2D420A4108700364C6F /* Gradients.m in Sources */,
+				98A6FD6A20B29AB400C944B5 /* MessageTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
