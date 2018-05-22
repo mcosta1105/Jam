@@ -1,22 +1,21 @@
 //
-//  SearchTableViewController.m
+//  MyJamsTableViewController.m
 //  Jam
 //
-//  Created by 5661 on 17/5/18.
+//  Created by 5661 on 22/5/18.
 //  Copyright © 2018 5661. All rights reserved.
 //
 
-#import "SearchTableViewController.h"
+#import "MyJamsTableViewController.h"
 
-@interface SearchTableViewController ()
+@interface MyJamsTableViewController ()
 
 @end
 
-@implementation SearchTableViewController
+@implementation MyJamsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
@@ -35,6 +34,11 @@
     }
     NSLog(@"%@", _data);
     
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,39 +56,28 @@
     return [_data count];
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellIdentifier = @"myCell";
-    
-    [self.tableView registerNib:[UINib nibWithNibName:@"SearchTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
-    SearchTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    
-    
-    
-    Post *item = [_data objectAtIndex:indexPath.row];
-    cell.titleLabel.text = [item title];
-    cell.timeLabel.text = [item time];
-    cell.addressLabel.text = [item address];
-    cell.dateLabel.text = [item date];
-    
-    return  cell;
-    
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+ static NSString *cellIdentifier = @"myCell";
+ 
+ [self.tableView registerNib:[UINib nibWithNibName:@"MyJamsTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
+ MyJamsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+ 
+ 
+ 
+ Post *item = [_data objectAtIndex:indexPath.row];
+ cell.postTitleLabel.text = [item title];
+ cell.timeLabel.text = [item time];
+ cell.addressLabel.text = [item address];
+ cell.dateLabel.text = [item date];
+ 
+ return  cell;
 }
 
-//click on cell
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"jamDetails" sender:self];
+    [self performSegueWithIdentifier:@"editJam" sender:self];
 }
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
 
 /*
 // Override to support conditional editing of the table view.
@@ -126,8 +119,8 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
-        [segue destinationViewController];
     // Pass the selected object to the new view controller.
+ [segue destinationViewController];
 }
 
 @end

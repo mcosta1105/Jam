@@ -11,6 +11,10 @@
 		98339A6520ACF2C4001C91B1 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98339A6420ACF2C4001C91B1 /* SearchTableViewCell.m */; };
 		98339A6920ACF968001C91B1 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 98339A6820ACF968001C91B1 /* Post.m */; };
 		98339A6C20ACFF6D001C91B1 /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98339A6B20ACFF6D001C91B1 /* SearchTableViewController.m */; };
+		983D144A20B3811300465D8A /* MyJamsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 983D144920B3811300465D8A /* MyJamsTableViewController.m */; };
+		983D144D20B3816700465D8A /* MyJamsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 983D144C20B3816700465D8A /* MyJamsTableViewCell.m */; };
+		983D144F20B381E200465D8A /* MyJamsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 983D144E20B381E200465D8A /* MyJamsTableViewCell.xib */; };
+		983D145220B39E1100465D8A /* AddJamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 983D145120B39E1100465D8A /* AddJamViewController.m */; };
 		98A6FD6420B2655D00C944B5 /* JamDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A6FD6320B2655D00C944B5 /* JamDetailsViewController.m */; };
 		98A6FD6720B2950000C944B5 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A6FD6620B2950000C944B5 /* ProfileViewController.m */; };
 		98A6FD6A20B29AB400C944B5 /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98A6FD6920B29AB400C944B5 /* MessageTableViewController.m */; };
@@ -55,6 +59,13 @@
 		98339A6820ACF968001C91B1 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		98339A6A20ACFF6D001C91B1 /* SearchTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
 		98339A6B20ACFF6D001C91B1 /* SearchTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
+		983D144820B3811300465D8A /* MyJamsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyJamsTableViewController.h; sourceTree = "<group>"; };
+		983D144920B3811300465D8A /* MyJamsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyJamsTableViewController.m; sourceTree = "<group>"; };
+		983D144B20B3816700465D8A /* MyJamsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyJamsTableViewCell.h; sourceTree = "<group>"; };
+		983D144C20B3816700465D8A /* MyJamsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyJamsTableViewCell.m; sourceTree = "<group>"; };
+		983D144E20B381E200465D8A /* MyJamsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyJamsTableViewCell.xib; sourceTree = "<group>"; };
+		983D145020B39E1100465D8A /* AddJamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddJamViewController.h; sourceTree = "<group>"; };
+		983D145120B39E1100465D8A /* AddJamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddJamViewController.m; sourceTree = "<group>"; };
 		98A6FD6220B2655D00C944B5 /* JamDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JamDetailsViewController.h; sourceTree = "<group>"; };
 		98A6FD6320B2655D00C944B5 /* JamDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JamDetailsViewController.m; sourceTree = "<group>"; };
 		98A6FD6520B2950000C944B5 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -118,20 +129,25 @@
 		98339A6620ACF917001C91B1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				98339A6720ACF968001C91B1 /* Post.h */,
+				98339A6820ACF968001C91B1 /* Post.m */,
+				98A6FD7020B29CE100C944B5 /* Message.h */,
+				98A6FD7120B29CE100C944B5 /* Message.m */,
 				9815F24E20AC1638001AC7B1 /* SearchTableViewCell.xib */,
 				98339A6320ACF2C4001C91B1 /* SearchTableViewCell.h */,
 				98339A6420ACF2C4001C91B1 /* SearchTableViewCell.m */,
-				98339A6720ACF968001C91B1 /* Post.h */,
-				98339A6820ACF968001C91B1 /* Post.m */,
 				98339A6A20ACFF6D001C91B1 /* SearchTableViewController.h */,
 				98339A6B20ACFF6D001C91B1 /* SearchTableViewController.m */,
+				98A6FD6D20B29ADB00C944B5 /* MessageTableViewCell.xib */,
 				98A6FD6820B29AB400C944B5 /* MessageTableViewController.h */,
 				98A6FD6920B29AB400C944B5 /* MessageTableViewController.m */,
 				98A6FD6B20B29ADB00C944B5 /* MessageTableViewCell.h */,
 				98A6FD6C20B29ADB00C944B5 /* MessageTableViewCell.m */,
-				98A6FD6D20B29ADB00C944B5 /* MessageTableViewCell.xib */,
-				98A6FD7020B29CE100C944B5 /* Message.h */,
-				98A6FD7120B29CE100C944B5 /* Message.m */,
+				983D144E20B381E200465D8A /* MyJamsTableViewCell.xib */,
+				983D144B20B3816700465D8A /* MyJamsTableViewCell.h */,
+				983D144C20B3816700465D8A /* MyJamsTableViewCell.m */,
+				983D144820B3811300465D8A /* MyJamsTableViewController.h */,
+				983D144920B3811300465D8A /* MyJamsTableViewController.m */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -179,6 +195,8 @@
 				98A6FD6520B2950000C944B5 /* ProfileViewController.h */,
 				98A6FD6620B2950000C944B5 /* ProfileViewController.m */,
 				98339A6620ACF917001C91B1 /* Supporting Files */,
+				983D145020B39E1100465D8A /* AddJamViewController.h */,
+				983D145120B39E1100465D8A /* AddJamViewController.m */,
 			);
 			path = Jam;
 			sourceTree = "<group>";
@@ -311,6 +329,7 @@
 				98FFB2AA20A40EEF00364C6F /* Assets.xcassets in Resources */,
 				98A6FD6F20B29ADB00C944B5 /* MessageTableViewCell.xib in Resources */,
 				98FFB2A820A40EEF00364C6F /* Main.storyboard in Resources */,
+				983D144F20B381E200465D8A /* MyJamsTableViewCell.xib in Resources */,
 				9815F25020AC1638001AC7B1 /* SearchTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +359,7 @@
 				98339A6520ACF2C4001C91B1 /* SearchTableViewCell.m in Sources */,
 				98A6FD6420B2655D00C944B5 /* JamDetailsViewController.m in Sources */,
 				98A6FD7220B29CE100C944B5 /* Message.m in Sources */,
+				983D144D20B3816700465D8A /* MyJamsTableViewCell.m in Sources */,
 				98FFB2A520A40EEF00364C6F /* LoginViewController.m in Sources */,
 				98AA3FC220AA485A00601D7D /* SignUPViewController.m in Sources */,
 				98339A6920ACF968001C91B1 /* Post.m in Sources */,
@@ -348,8 +368,10 @@
 				98A6FD6720B2950000C944B5 /* ProfileViewController.m in Sources */,
 				98FFB2A220A40EEF00364C6F /* AppDelegate.m in Sources */,
 				98A6FD6E20B29ADB00C944B5 /* MessageTableViewCell.m in Sources */,
+				983D145220B39E1100465D8A /* AddJamViewController.m in Sources */,
 				98FFB2D420A4108700364C6F /* Gradients.m in Sources */,
 				98A6FD6A20B29AB400C944B5 /* MessageTableViewController.m in Sources */,
+				983D144A20B3811300465D8A /* MyJamsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

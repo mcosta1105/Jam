@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPasswordTextField;
+@property (weak, nonatomic) IBOutlet UISwitch *termsSwitch;
 
 
 @end
