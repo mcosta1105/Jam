@@ -32,6 +32,7 @@
 		98FFB2BA20A40EEF00364C6F /* JamTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FFB2B920A40EEF00364C6F /* JamTests.m */; };
 		98FFB2C520A40EEF00364C6F /* JamUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FFB2C420A40EEF00364C6F /* JamUITests.m */; };
 		98FFB2D420A4108700364C6F /* Gradients.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FFB2D320A4108700364C6F /* Gradients.m */; };
+		B8A82D1920B774E700AED2CF /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A82D1820B774E700AED2CF /* MyProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,8 @@
 		98FFB2C620A40EEF00364C6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98FFB2D220A4108700364C6F /* Gradients.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gradients.h; sourceTree = "<group>"; };
 		98FFB2D320A4108700364C6F /* Gradients.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Gradients.m; sourceTree = "<group>"; };
+		B8A82D1720B774E700AED2CF /* MyProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
+		B8A82D1820B774E700AED2CF /* MyProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,9 +197,11 @@
 				98A6FD6320B2655D00C944B5 /* JamDetailsViewController.m */,
 				98A6FD6520B2950000C944B5 /* ProfileViewController.h */,
 				98A6FD6620B2950000C944B5 /* ProfileViewController.m */,
-				98339A6620ACF917001C91B1 /* Supporting Files */,
 				983D145020B39E1100465D8A /* AddJamViewController.h */,
 				983D145120B39E1100465D8A /* AddJamViewController.m */,
+				B8A82D1720B774E700AED2CF /* MyProfileViewController.h */,
+				B8A82D1820B774E700AED2CF /* MyProfileViewController.m */,
+				98339A6620ACF917001C91B1 /* Supporting Files */,
 			);
 			path = Jam;
 			sourceTree = "<group>";
@@ -365,6 +370,7 @@
 				98339A6920ACF968001C91B1 /* Post.m in Sources */,
 				98FFB2B020A40EEF00364C6F /* main.m in Sources */,
 				98AA3FC520AA65EA00601D7D /* InputIcons.m in Sources */,
+				B8A82D1920B774E700AED2CF /* MyProfileViewController.m in Sources */,
 				98A6FD6720B2950000C944B5 /* ProfileViewController.m in Sources */,
 				98FFB2A220A40EEF00364C6F /* AppDelegate.m in Sources */,
 				98A6FD6E20B29ADB00C944B5 /* MessageTableViewCell.m in Sources */,
