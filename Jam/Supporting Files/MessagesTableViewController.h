@@ -10,7 +10,7 @@
 #import "Message.h"
 #import "MessageTableViewCell.h"
 
-@interface MessageTableViewController : UITableViewController
+@interface MessagesTableViewController : UITableViewController 
 {
     NSMutableArray * _data;
 }

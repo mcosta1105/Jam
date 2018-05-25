@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) NSString *title;
 @property (weak, nonatomic) NSString *sender;
-
+@property (weak, nonatomic) NSString *text;
+@property (weak, nonatomic) NSString *currentUser;
 @end

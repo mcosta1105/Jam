@@ -1,18 +1,18 @@
 //
-//  MessageTableViewController.m
+//  MessageController.m
 //  Jam
 //
-//  Created by 5661 on 21/5/18.
+//  Created by Isabele Araujo on 25/5/18.
 //  Copyright © 2018 5661. All rights reserved.
 //
 
-#import "MessagesTableViewController.h"
+#import "MessageController.h"
 
-@interface MessagesTableViewController ()
+@interface MessageController ()
 
 @end
 
-@implementation MessagesTableViewController
+@implementation MessageController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,13 +22,20 @@
     
     _data = [NSMutableArray array];
     
-    NSInteger numberOfItems = 5;
+    NSInteger numberOfItems = 7;
     
     for(NSInteger i = 1; i <= numberOfItems; i++){
         Message *message = [[Message alloc]init];
-        message.title = @"I need a drummer urgent!";
-        message.sender = @"Maycon Costa";
-        
+        if (i%2 == 0) {
+            message.text = @"Velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident";
+            message.sender = @"maycon";
+            message.currentUser = @"maycon";
+        }
+        else{
+            message.text = @"Lorem ipsum dolor sit er elit lamet";
+            message.sender = @"peter";
+            message.currentUser = @"peter";
+        }
         [_data addObject:message];
     }
     NSLog(@"%@", _data);
@@ -39,8 +46,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -50,25 +55,37 @@
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *cellIdentifier = @"myCell";
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"MessageTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
-    MessageTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    [self.tableView registerNib:[UINib nibWithNibName:@"M_TableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
+    M_TableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     
     
     Message *item = [_data objectAtIndex:indexPath.row];
-    cell.messageTitleLabel.text = [item title];
-    cell.messageSenderLabel.text = [item sender];
+    if([[item sender] isEqualToString:@"maycon"]){
+        cell.sentLabel.text = [item text];
+        cell.receivedView.hidden = YES;
+    }
+    else{
+        cell.receivedLabel.text = [item text];
+        cell.sentLabel.hidden = YES;
+    }
     
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"toMessage" sender:self];
+/*
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    
+    // Configure the cell...
+    
+    return cell;
 }
+*/
 
 /*
 // Override to support conditional editing of the table view.
@@ -104,17 +121,14 @@
 }
 */
 
-
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    [segue destinationViewController];
 }
-
-
-
+*/
 
 @end

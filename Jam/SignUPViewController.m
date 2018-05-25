@@ -20,8 +20,7 @@
     // Do any additional setup after loading the view.
     [self setGradients];
     [self setIcons];
-    
-    self.termsSwitch.transform = CGAffineTransformMakeScale(0.4, 0.4);
+    self.termsSwitch.transform = CGAffineTransformMakeScale(0.8, 0.8);
 }
 
 - (void)didReceiveMemoryWarning {

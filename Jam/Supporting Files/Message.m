@@ -10,6 +10,6 @@
 
 @implementation Message
 
-@synthesize title, sender;
+@synthesize title, sender, text, currentUser;
 
 @end
