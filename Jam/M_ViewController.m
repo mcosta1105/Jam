@@ -13,13 +13,14 @@
 @end
 
 @implementation M_ViewController
-@synthesize messageTableView;
+@synthesize messageTableView, sendBtn;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [self setGradients];
     self.messageTableView.delegate = self;
     self.messageTableView.dataSource = self;
+    
     
     _data = [NSMutableArray array];
     
@@ -28,7 +29,7 @@
     for(NSInteger i = 1; i <= numberOfItems; i++){
         Message *message = [[Message alloc]init];
         if (i%2 == 0) {
-            message.text = @"Lorem ipsum dolor sit er elit lamet";
+            message.text = @"Velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident";
             message.sender = @"maycon";
             message.currentUser = @"maycon";
         }
@@ -63,8 +64,6 @@
     [tableView registerNib:[UINib nibWithNibName:@"M_TableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
     M_TableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    
-    
     Message *item = [_data objectAtIndex:indexPath.row];
     if([[item sender] isEqualToString:@"maycon"]){
         cell.sentLabel.text = [item text];
@@ -77,14 +76,21 @@
     
     return cell;
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//Set view Gradients
+-(void)setGradients{
+    CAGradientLayer *gradientLayer = [Gradients backgroundGradient];
+    gradientLayer.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [self.view.layer insertSublayer:gradientLayer atIndex:0];
+    
+    
+    //login Button gradient
+    CAGradientLayer *sendBtnLayer = [Gradients mainBtnGradient];
+    sendBtnLayer.frame = sendBtn.layer.bounds;
+    sendBtnLayer.cornerRadius = sendBtn.layer.cornerRadius;
+    [sendBtn.layer addSublayer:sendBtnLayer];
+    
 }
-*/
+
 
 @end

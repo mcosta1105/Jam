@@ -13,7 +13,7 @@
 @end
 
 @implementation AddJamViewController
-@synthesize descriptionTextView, addBtn;
+@synthesize descriptionTextView, addBtn, timeTextField, titleTextField, addressTextField, dateTextField;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -21,14 +21,14 @@
     [self setGradients];
     
     self.descriptionTextView.delegate = self;
+    
     descriptionTextView.text =@"Description...";
     descriptionTextView.textColor = [UIColor colorWithRed:(213/255.0) green:(67/255.0) blue:(147/255.0) alpha:1.0];
-    
-    
-    
+    //descriptionTextView.textColor = mainColor;
     descriptionTextView.layer.borderColor = [[UIColor colorWithRed:(200/255.0) green:(201/255.0) blue:(202/255.0) alpha:0.7]CGColor];
     descriptionTextView.layer.borderWidth = 1;
     descriptionTextView.layer.cornerRadius = 5;
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "M_TableViewCell.h"
 #import "Message.h"
+#import "Gradients.h"
 
 @interface M_ViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 {
     NSMutableArray * _data;
 }
+@property (weak, nonatomic) IBOutlet UIButton *sendBtn;
 @property (weak, nonatomic) IBOutlet UITableView *messageTableView;
 @end
