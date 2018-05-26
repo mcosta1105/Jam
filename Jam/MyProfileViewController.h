@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *changePasswordBtn;
 @property (weak, nonatomic) IBOutlet UITextField *webLinkTextField;
-@property (weak, nonatomic) IBOutlet UITextView *descriptionTextField;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 @property (weak, nonatomic) IBOutlet UIButton *saveBtn;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Gradients.h"
 
 @interface ProfileViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *profileImg;

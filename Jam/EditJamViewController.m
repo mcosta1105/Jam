@@ -1,19 +1,19 @@
 //
-//  MyProfileViewController.m
+//  EditJamViewController.m
 //  Jam
 //
-//  Created by Isabele Araujo on 25/5/18.
+//  Created by Isabele Araujo on 26/5/18.
 //  Copyright © 2018 5661. All rights reserved.
 //
 
-#import "MyProfileViewController.h"
+#import "EditJamViewController.h"
 
-@interface MyProfileViewController ()
+@interface EditJamViewController ()
 
 @end
 
-@implementation MyProfileViewController
-@synthesize changePicBtn, changePasswordBtn, saveBtn, descriptionTextView;
+@implementation EditJamViewController
+@synthesize updateBtn, deleteBtn, descriptionTextView;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -22,6 +22,7 @@
     descriptionTextView.layer.borderColor = [[UIColor colorWithRed:(200/255.0) green:(201/255.0) blue:(202/255.0) alpha:0.7]CGColor];
     descriptionTextView.layer.borderWidth = 1;
     descriptionTextView.layer.cornerRadius = 5;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,10 +36,17 @@
     gradientLayer.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     [self.view.layer insertSublayer:gradientLayer atIndex:0];
     
-    //Save Button gradient
-    CAGradientLayer *saveBtnLayer = [Gradients mainBtnGradient];
-    saveBtnLayer.frame = saveBtn.layer.bounds;
-    saveBtnLayer.cornerRadius = saveBtn.layer.cornerRadius;
-    [saveBtn.layer addSublayer:saveBtnLayer];
+    //Update Button gradient
+    CAGradientLayer *updateBtnLayer = [Gradients blueBtnGradient];
+    updateBtnLayer.frame = updateBtn.layer.bounds;
+    updateBtnLayer.cornerRadius = updateBtn.layer.cornerRadius;
+    [updateBtn.layer addSublayer:updateBtnLayer];
+    
+    //Delete Button gradient
+    CAGradientLayer *deleteBtnLayer = [Gradients mainBtnGradient];
+    deleteBtnLayer.frame = deleteBtn.layer.bounds;
+    deleteBtnLayer.cornerRadius = deleteBtn.layer.cornerRadius;
+    [deleteBtn.layer addSublayer:deleteBtnLayer];
 }
+
 @end

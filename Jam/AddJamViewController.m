@@ -13,10 +13,13 @@
 @end
 
 @implementation AddJamViewController
-@synthesize descriptionTextView;
+@synthesize descriptionTextView, addBtn;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self setGradients];
+    
     self.descriptionTextView.delegate = self;
     descriptionTextView.text =@"Description...";
     descriptionTextView.textColor = [UIColor colorWithRed:(213/255.0) green:(67/255.0) blue:(147/255.0) alpha:1.0];
@@ -33,15 +36,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)setGradients{
+    //Background gradient
+    CAGradientLayer *gradientLayer = [Gradients backgroundGradient];
+    gradientLayer.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    [self.view.layer insertSublayer:gradientLayer atIndex:0];
+    
+    
+    
+    
+    //Add Button gradient
+    CAGradientLayer *addtBtnLayer = [Gradients mainBtnGradient];
+    addtBtnLayer.frame = addBtn.layer.bounds;
+    addtBtnLayer.cornerRadius = addBtn.layer.cornerRadius;
+    [addBtn.layer addSublayer:addtBtnLayer];
 }
-*/
+
+
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
     if ([textView.text isEqualToString:@"Description..."]) {

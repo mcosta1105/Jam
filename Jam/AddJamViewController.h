@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Gradients.h"
 
 @interface AddJamViewController : UIViewController<UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
+@property (weak, nonatomic) IBOutlet UIButton *addBtn;
 
 @end
