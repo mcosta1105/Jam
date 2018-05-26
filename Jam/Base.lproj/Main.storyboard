@@ -49,7 +49,7 @@
                                                 <color key="tintColor" red="0.59215686274509804" green="0.36078431372549019" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="or Sign Up"/>
                                                 <connections>
-                                                    <segue destination="XaS-nh-gQ8" kind="show" id="ENU-dC-d5e"/>
+                                                    <segue destination="XaS-nh-gQ8" kind="show" identifier="toSignUpFromLogin" id="ENU-dC-d5e"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WId-iL-qxT">
@@ -83,7 +83,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="20"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="r5K-RN-uQM" kind="show" id="enB-nU-aYL"/>
+                                                    <segue destination="r5K-RN-uQM" kind="show" identifier="toJams" id="enB-nU-aYL"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -171,7 +171,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Jams" id="8GF-KD-0WD"/>
                     <connections>
-                        <segue destination="63f-qF-tZG" kind="show" identifier="jamDetails" id="Nyt-eo-bhS"/>
+                        <segue destination="63f-qF-tZG" kind="show" identifier="toJamDetails" id="Nyt-eo-bhS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uaK-Le-evn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -215,7 +215,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="25"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="8pn-hE-3ey" kind="show" id="1F4-NV-3X6"/>
+                                                    <segue destination="8pn-hE-3ey" kind="show" identifier="toProfile" id="1F4-NV-3X6"/>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="cfb-eR-FSu">
@@ -757,7 +757,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="My Jams" id="bp2-da-Aig"/>
                     <connections>
-                        <segue destination="lzb-mv-0Xj" kind="show" identifier="editJam" id="Ca1-TR-2B0"/>
+                        <segue destination="lzb-mv-0Xj" kind="show" identifier="toEditJam" id="Ca1-TR-2B0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S7L-p3-K57" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1156,7 +1156,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="15"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="XaS-nh-gQ8" kind="show" id="Hb6-Zv-6ll"/>
+                                                    <segue destination="XaS-nh-gQ8" kind="show" identifier="toSignUpCancelled" id="Hb6-Zv-6ll"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6q-cR-Yqf">
@@ -1169,7 +1169,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="15"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="XaS-nh-gQ8" kind="show" id="0dh-An-cjd"/>
+                                                    <segue destination="XaS-nh-gQ8" kind="show" identifier="toSignUpAccepted" id="0dh-An-cjd"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms and Conditions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ead-Mf-4J0">
@@ -1267,7 +1267,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="20"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="BYZ-38-t0r" kind="show" id="j52-64-Ayz"/>
+                                                    <segue destination="BYZ-38-t0r" kind="show" identifier="toLogin" id="j52-64-Ayz"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8O4-A1-fAY">
@@ -1322,7 +1322,7 @@
                                                             <color key="titleColor" red="0.59215686270000001" green="0.36078431370000003" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="0xy-OA-d7r" kind="show" id="RoX-Zu-Rll"/>
+                                                            <segue destination="0xy-OA-d7r" kind="show" identifier="toTerms" id="RoX-Zu-Rll"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>

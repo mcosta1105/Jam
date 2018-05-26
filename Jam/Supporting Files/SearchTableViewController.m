@@ -73,7 +73,7 @@
 //click on cell
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"jamDetails" sender:self];
+    [self performSegueWithIdentifier:@"toJamDetails" sender:self];
 }
 
 /*

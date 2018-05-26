@@ -76,7 +76,7 @@
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"editJam" sender:self];
+    [self performSegueWithIdentifier:@"toEditJam" sender:self];
 }
 
 /*
