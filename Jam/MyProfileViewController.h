@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Gradients.h"
+#import "InputIcons.h"
 
 @interface MyProfileViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;

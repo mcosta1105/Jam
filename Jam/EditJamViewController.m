@@ -49,4 +49,6 @@
     [deleteBtn.layer addSublayer:deleteBtnLayer];
 }
 
+- (IBAction)nameTextField:(UITextField *)sender {
+}
 @end

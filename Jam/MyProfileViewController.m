@@ -13,11 +13,12 @@
 @end
 
 @implementation MyProfileViewController
-@synthesize changePicBtn, changePasswordBtn, saveBtn, descriptionTextView;
+@synthesize changePicBtn, changePasswordBtn, saveBtn, descriptionTextView, nameTextField, emailTextField, passwordTextField, webLinkTextField;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setGradients];
+    [self setIcons];
     
     descriptionTextView.layer.borderColor = [[UIColor colorWithRed:(200/255.0) green:(201/255.0) blue:(202/255.0) alpha:0.7]CGColor];
     descriptionTextView.layer.borderWidth = 1;
@@ -40,5 +41,21 @@
     saveBtnLayer.frame = saveBtn.layer.bounds;
     saveBtnLayer.cornerRadius = saveBtn.layer.cornerRadius;
     [saveBtn.layer addSublayer:saveBtnLayer];
+}
+
+//Set view Icons
+-(void)setIcons{
+    //Name
+    InputIcons * name = [InputIcons alloc];
+    [name setIcon:@"user" forTextField:nameTextField];
+    //Password
+    InputIcons * email = [InputIcons alloc];
+    [email setIcon:@"email" forTextField:emailTextField];
+    //Name
+    InputIcons * password = [InputIcons alloc];
+    [password setIcon:@"padlock" forTextField:passwordTextField];
+    //Name
+    InputIcons * web = [InputIcons alloc];
+    [web setIcon:@"link" forTextField:webLinkTextField];
 }
 @end
