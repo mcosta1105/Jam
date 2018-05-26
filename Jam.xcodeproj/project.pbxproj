@@ -33,6 +33,7 @@
 		98FFB2D420A4108700364C6F /* Gradients.m in Sources */ = {isa = PBXBuildFile; fileRef = 98FFB2D320A4108700364C6F /* Gradients.m */; };
 		B859B7FC20B8034C008BD9F9 /* M_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B859B7FB20B8034C008BD9F9 /* M_ViewController.m */; };
 		B859B7FF20B8649C008BD9F9 /* TermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B859B7FE20B8649C008BD9F9 /* TermsViewController.m */; };
+		B859B80220B8D433008BD9F9 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B859B80120B8D433008BD9F9 /* MoreViewController.m */; };
 		B872B5CA20B7D8A2005A1B1B /* MessagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B872B5C920B7D8A2005A1B1B /* MessagesTableViewController.m */; };
 		B872B5D720B7E856005A1B1B /* MessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = B872B5D620B7E856005A1B1B /* MessageController.m */; };
 		B872B5DB20B7E873005A1B1B /* M_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B872B5D920B7E873005A1B1B /* M_TableViewCell.m */; };
@@ -108,6 +109,8 @@
 		B859B7FB20B8034C008BD9F9 /* M_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = M_ViewController.m; sourceTree = "<group>"; };
 		B859B7FD20B8649C008BD9F9 /* TermsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TermsViewController.h; sourceTree = "<group>"; };
 		B859B7FE20B8649C008BD9F9 /* TermsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TermsViewController.m; sourceTree = "<group>"; };
+		B859B80020B8D433008BD9F9 /* MoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
+		B859B80120B8D433008BD9F9 /* MoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
 		B872B5C920B7D8A2005A1B1B /* MessagesTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessagesTableViewController.m; sourceTree = "<group>"; };
 		B872B5D520B7E856005A1B1B /* MessageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageController.h; sourceTree = "<group>"; };
 		B872B5D620B7E856005A1B1B /* MessageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageController.m; sourceTree = "<group>"; };
@@ -219,6 +222,8 @@
 				B859B7FB20B8034C008BD9F9 /* M_ViewController.m */,
 				B859B7FD20B8649C008BD9F9 /* TermsViewController.h */,
 				B859B7FE20B8649C008BD9F9 /* TermsViewController.m */,
+				B859B80020B8D433008BD9F9 /* MoreViewController.h */,
+				B859B80120B8D433008BD9F9 /* MoreViewController.m */,
 				B872B5D420B7E831005A1B1B /* Message */,
 				98339A6620ACF917001C91B1 /* Supporting Files */,
 			);
@@ -394,6 +399,7 @@
 			files = (
 				98339A6C20ACFF6D001C91B1 /* SearchTableViewController.m in Sources */,
 				98339A6520ACF2C4001C91B1 /* SearchTableViewCell.m in Sources */,
+				B859B80220B8D433008BD9F9 /* MoreViewController.m in Sources */,
 				98A6FD6420B2655D00C944B5 /* JamDetailsViewController.m in Sources */,
 				98A6FD7220B29CE100C944B5 /* Message.m in Sources */,
 				983D144D20B3816700465D8A /* MyJamsTableViewCell.m in Sources */,

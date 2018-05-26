@@ -13,7 +13,7 @@
 @end
 
 @implementation LoginViewController
-@synthesize emailTextField, passwordTextField;
+@synthesize emailTextField, passwordTextField, loginBtn;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,6 +40,14 @@
     CAGradientLayer *gradientLayer = [Gradients backgroundGradient];
     gradientLayer.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     [self.view.layer insertSublayer:gradientLayer atIndex:0];
+    
+    
+    //login Button gradient
+    CAGradientLayer *loginBtnLayer = [Gradients mainBtnGradient];
+    loginBtnLayer.frame = loginBtn.layer.bounds;
+    loginBtnLayer.cornerRadius = loginBtn.layer.cornerRadius;
+    [loginBtn.layer addSublayer:loginBtnLayer];
+    
 }
 
 //Set view Icons

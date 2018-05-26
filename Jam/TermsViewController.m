@@ -37,7 +37,7 @@
     cancelBtnLayer.cornerRadius = cancelBtn.layer.cornerRadius;
     [cancelBtn.layer addSublayer:cancelBtnLayer];
     
-    //Cancel Button gradient
+    //Accept Button gradient
     CAGradientLayer *acceptBtnLayer = [Gradients mainBtnGradient];
     acceptBtnLayer.frame = acceptBtn.layer.bounds;
     acceptBtnLayer.cornerRadius = acceptBtn.layer.cornerRadius;
