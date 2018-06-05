@@ -29,11 +29,40 @@
     self.emailTextField.layer.cornerRadius = 20.0;
     */
     
+    [self firebaseTests];
 }
+
+-(void)firebaseTests{
+    /*
+    [FIRAuth.auth createUserWithEmail:@"maycon@maycon.com"
+                             password:@"maycon1234"
+                           completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error)
+                                        {
+                                            if(error == nil){
+                                                [self alertShowWithTitle:@"Sucess!"
+                                                                 andBody:@"You have succesfully made a new user!"];
+                                            }
+                                        }];
+     */
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)alertShowWithTitle:(NSString *)titleInp andBody:(NSString *)bodyInp{
+    UIAlertController* alert;
+    alert = [UIAlertController alertControllerWithTitle:titleInp
+                                                message:bodyInp
+                                         preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"Ok!" style:UIAlertActionStyleDefault handler:nil]];
+    
+    [self presentViewController:alert animated:true completion:nil];
+}
+
+
 
 //Set view Gradients
 -(void)setGradients{

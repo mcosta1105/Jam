@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01CA7DA2B8B7CE95AD385972 /* libPods-JamUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED5A09BDD71F96B880858BF7 /* libPods-JamUITests.a */; };
+		34F71F70C98171487FA169D1 /* libPods-Jam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253F1C1A0A6EE253C296AAF /* libPods-Jam.a */; };
+		6C979EEA6FA4558B3DEA86A3 /* libPods-JamTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A80DA37C5101062E20B27EB /* libPods-JamTests.a */; };
 		9815F25020AC1638001AC7B1 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9815F24E20AC1638001AC7B1 /* SearchTableViewCell.xib */; };
 		982BE72920BE7D00008FB78A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 982BE72820BE7D00008FB78A /* GoogleService-Info.plist */; };
 		98339A6520ACF2C4001C91B1 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98339A6420ACF2C4001C91B1 /* SearchTableViewCell.m */; };
@@ -41,6 +44,7 @@
 		B872B5DB20B7E873005A1B1B /* M_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B872B5D920B7E873005A1B1B /* M_TableViewCell.m */; };
 		B872B5DC20B7E873005A1B1B /* M_TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B872B5DA20B7E873005A1B1B /* M_TableViewCell.xib */; };
 		B8A82D1920B774E700AED2CF /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A82D1820B774E700AED2CF /* MyProfileViewController.m */; };
+		B8E9BC9B20C60621005EF8C2 /* AppData.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E9BC9A20C60621005EF8C2 /* AppData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		098E33073C2414C41CFDCED6 /* Pods-Jam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jam.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jam/Pods-Jam.release.xcconfig"; sourceTree = "<group>"; };
+		1C80A43B092AA5E64174D057 /* Pods-JamUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamUITests/Pods-JamUITests.release.xcconfig"; sourceTree = "<group>"; };
+		20A02FC1ED13C2D8D03BC6CA /* Pods-JamUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamUITests/Pods-JamUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2A80DA37C5101062E20B27EB /* libPods-JamTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JamTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C9D9259F040CCA87A970D6E /* Pods-JamTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamTests/Pods-JamTests.debug.xcconfig"; sourceTree = "<group>"; };
+		460541A5D5380228434B5CC2 /* Pods-JamTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamTests/Pods-JamTests.release.xcconfig"; sourceTree = "<group>"; };
+		9253F1C1A0A6EE253C296AAF /* libPods-Jam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Jam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9815F24E20AC1638001AC7B1 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		982BE72820BE7D00008FB78A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		98339A6320ACF2C4001C91B1 /* SearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
@@ -124,6 +135,10 @@
 		B872B5DA20B7E873005A1B1B /* M_TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = M_TableViewCell.xib; sourceTree = "<group>"; };
 		B8A82D1720B774E700AED2CF /* MyProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
 		B8A82D1820B774E700AED2CF /* MyProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewController.m; sourceTree = "<group>"; };
+		B8E9BC9920C60621005EF8C2 /* AppData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppData.h; sourceTree = "<group>"; };
+		B8E9BC9A20C60621005EF8C2 /* AppData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppData.m; sourceTree = "<group>"; };
+		ED5A09BDD71F96B880858BF7 /* libPods-JamUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JamUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5E67A86E192B0731444B656 /* Pods-Jam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jam/Pods-Jam.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34F71F70C98171487FA169D1 /* libPods-Jam.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C979EEA6FA4558B3DEA86A3 /* libPods-JamTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,36 +162,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01CA7DA2B8B7CE95AD385972 /* libPods-JamUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		98339A6620ACF917001C91B1 /* Supporting Files */ = {
+		3856192854AA26FAAE098728 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				98339A6720ACF968001C91B1 /* Post.h */,
-				98339A6820ACF968001C91B1 /* Post.m */,
-				98A6FD7020B29CE100C944B5 /* Message.h */,
-				98A6FD7120B29CE100C944B5 /* Message.m */,
-				9815F24E20AC1638001AC7B1 /* SearchTableViewCell.xib */,
-				98339A6320ACF2C4001C91B1 /* SearchTableViewCell.h */,
-				98339A6420ACF2C4001C91B1 /* SearchTableViewCell.m */,
-				98339A6A20ACFF6D001C91B1 /* SearchTableViewController.h */,
-				98339A6B20ACFF6D001C91B1 /* SearchTableViewController.m */,
-				98A6FD6D20B29ADB00C944B5 /* MessageTableViewCell.xib */,
-				98A6FD6820B29AB400C944B5 /* MessagesTableViewController.h */,
-				B872B5C920B7D8A2005A1B1B /* MessagesTableViewController.m */,
-				98A6FD6B20B29ADB00C944B5 /* MessageTableViewCell.h */,
-				98A6FD6C20B29ADB00C944B5 /* MessageTableViewCell.m */,
-				983D144E20B381E200465D8A /* MyJamsTableViewCell.xib */,
-				983D144B20B3816700465D8A /* MyJamsTableViewCell.h */,
-				983D144C20B3816700465D8A /* MyJamsTableViewCell.m */,
-				983D144820B3811300465D8A /* MyJamsTableViewController.h */,
-				983D144920B3811300465D8A /* MyJamsTableViewController.m */,
+				F5E67A86E192B0731444B656 /* Pods-Jam.debug.xcconfig */,
+				098E33073C2414C41CFDCED6 /* Pods-Jam.release.xcconfig */,
+				3C9D9259F040CCA87A970D6E /* Pods-JamTests.debug.xcconfig */,
+				460541A5D5380228434B5CC2 /* Pods-JamTests.release.xcconfig */,
+				20A02FC1ED13C2D8D03BC6CA /* Pods-JamUITests.debug.xcconfig */,
+				1C80A43B092AA5E64174D057 /* Pods-JamUITests.release.xcconfig */,
 			);
-			path = "Supporting Files";
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		56E0639A451765EC44380227 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9253F1C1A0A6EE253C296AAF /* libPods-Jam.a */,
+				2A80DA37C5101062E20B27EB /* libPods-JamTests.a */,
+				ED5A09BDD71F96B880858BF7 /* libPods-JamUITests.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		98FFB29420A40EEF00364C6F = {
@@ -184,6 +199,8 @@
 				98FFB2B820A40EEF00364C6F /* JamTests */,
 				98FFB2C320A40EEF00364C6F /* JamUITests */,
 				98FFB29E20A40EEF00364C6F /* Products */,
+				3856192854AA26FAAE098728 /* Pods */,
+				56E0639A451765EC44380227 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -203,8 +220,6 @@
 				982BE72820BE7D00008FB78A /* GoogleService-Info.plist */,
 				98FFB2A020A40EEF00364C6F /* AppDelegate.h */,
 				98FFB2A120A40EEF00364C6F /* AppDelegate.m */,
-				98AA3FC720AA7C3D00601D7D /* LoginViewController.h */,
-				98FFB2A420A40EEF00364C6F /* LoginViewController.m */,
 				98FFB2A620A40EEF00364C6F /* Main.storyboard */,
 				98FFB2A920A40EEF00364C6F /* Assets.xcassets */,
 				98FFB2AB20A40EEF00364C6F /* LaunchScreen.storyboard */,
@@ -212,28 +227,12 @@
 				98FFB2AF20A40EEF00364C6F /* main.m */,
 				98FFB2D220A4108700364C6F /* Gradients.h */,
 				98FFB2D320A4108700364C6F /* Gradients.m */,
-				98AA3FC020AA485A00601D7D /* SignUPViewController.h */,
-				98AA3FC120AA485A00601D7D /* SignUPViewController.m */,
 				98AA3FC320AA65EA00601D7D /* InputIcons.h */,
 				98AA3FC420AA65EA00601D7D /* InputIcons.m */,
-				98A6FD6220B2655D00C944B5 /* JamDetailsViewController.h */,
-				98A6FD6320B2655D00C944B5 /* JamDetailsViewController.m */,
-				98A6FD6520B2950000C944B5 /* ProfileViewController.h */,
-				98A6FD6620B2950000C944B5 /* ProfileViewController.m */,
-				983D145020B39E1100465D8A /* AddJamViewController.h */,
-				983D145120B39E1100465D8A /* AddJamViewController.m */,
-				B8A82D1720B774E700AED2CF /* MyProfileViewController.h */,
-				B8A82D1820B774E700AED2CF /* MyProfileViewController.m */,
-				B859B7FA20B8034C008BD9F9 /* M_ViewController.h */,
-				B859B7FB20B8034C008BD9F9 /* M_ViewController.m */,
-				B859B7FD20B8649C008BD9F9 /* TermsViewController.h */,
-				B859B7FE20B8649C008BD9F9 /* TermsViewController.m */,
-				B859B80020B8D433008BD9F9 /* MoreViewController.h */,
-				B859B80120B8D433008BD9F9 /* MoreViewController.m */,
-				B859B80320B9027D008BD9F9 /* EditJamViewController.h */,
-				B859B80420B9027D008BD9F9 /* EditJamViewController.m */,
-				B872B5D420B7E831005A1B1B /* Message */,
-				98339A6620ACF917001C91B1 /* Supporting Files */,
+				B8E9BC9F20C60AE3005EF8C2 /* TableViewControllers */,
+				B8E9BC9E20C609FF005EF8C2 /* Data */,
+				B8E9BC9D20C609B3005EF8C2 /* UIViewControllers */,
+				B8E9BC9C20C609A5005EF8C2 /* Models */,
 			);
 			path = Jam;
 			sourceTree = "<group>";
@@ -256,16 +255,86 @@
 			path = JamUITests;
 			sourceTree = "<group>";
 		};
-		B872B5D420B7E831005A1B1B /* Message */ = {
+		B8E9BC9C20C609A5005EF8C2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				98339A6720ACF968001C91B1 /* Post.h */,
+				98339A6820ACF968001C91B1 /* Post.m */,
+				98A6FD7020B29CE100C944B5 /* Message.h */,
+				98A6FD7120B29CE100C944B5 /* Message.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B8E9BC9D20C609B3005EF8C2 /* UIViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				98AA3FC720AA7C3D00601D7D /* LoginViewController.h */,
+				98FFB2A420A40EEF00364C6F /* LoginViewController.m */,
+				98A6FD6220B2655D00C944B5 /* JamDetailsViewController.h */,
+				98A6FD6320B2655D00C944B5 /* JamDetailsViewController.m */,
+				98A6FD6520B2950000C944B5 /* ProfileViewController.h */,
+				98A6FD6620B2950000C944B5 /* ProfileViewController.m */,
+				983D145020B39E1100465D8A /* AddJamViewController.h */,
+				983D145120B39E1100465D8A /* AddJamViewController.m */,
+				B8A82D1720B774E700AED2CF /* MyProfileViewController.h */,
+				B8A82D1820B774E700AED2CF /* MyProfileViewController.m */,
+				B859B7FA20B8034C008BD9F9 /* M_ViewController.h */,
+				B859B7FB20B8034C008BD9F9 /* M_ViewController.m */,
+				B859B7FD20B8649C008BD9F9 /* TermsViewController.h */,
+				B859B7FE20B8649C008BD9F9 /* TermsViewController.m */,
+				B859B80020B8D433008BD9F9 /* MoreViewController.h */,
+				B859B80120B8D433008BD9F9 /* MoreViewController.m */,
+				B859B80320B9027D008BD9F9 /* EditJamViewController.h */,
+				B859B80420B9027D008BD9F9 /* EditJamViewController.m */,
+				98AA3FC020AA485A00601D7D /* SignUPViewController.h */,
+				98AA3FC120AA485A00601D7D /* SignUPViewController.m */,
+			);
+			path = UIViewControllers;
+			sourceTree = "<group>";
+		};
+		B8E9BC9E20C609FF005EF8C2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B8E9BC9920C60621005EF8C2 /* AppData.h */,
+				B8E9BC9A20C60621005EF8C2 /* AppData.m */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B8E9BC9F20C60AE3005EF8C2 /* TableViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				B872B5D520B7E856005A1B1B /* MessageController.h */,
 				B872B5D620B7E856005A1B1B /* MessageController.m */,
+				98339A6A20ACFF6D001C91B1 /* SearchTableViewController.h */,
+				98339A6B20ACFF6D001C91B1 /* SearchTableViewController.m */,
+				98A6FD6820B29AB400C944B5 /* MessagesTableViewController.h */,
+				B872B5C920B7D8A2005A1B1B /* MessagesTableViewController.m */,
+				983D144820B3811300465D8A /* MyJamsTableViewController.h */,
+				983D144920B3811300465D8A /* MyJamsTableViewController.m */,
+				B8E9BCA020C60B10005EF8C2 /* TableCells */,
+			);
+			path = TableViewControllers;
+			sourceTree = "<group>";
+		};
+		B8E9BCA020C60B10005EF8C2 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				B872B5DA20B7E873005A1B1B /* M_TableViewCell.xib */,
 				B872B5D820B7E873005A1B1B /* M_TableViewCell.h */,
 				B872B5D920B7E873005A1B1B /* M_TableViewCell.m */,
-				B872B5DA20B7E873005A1B1B /* M_TableViewCell.xib */,
+				98A6FD6D20B29ADB00C944B5 /* MessageTableViewCell.xib */,
+				98A6FD6B20B29ADB00C944B5 /* MessageTableViewCell.h */,
+				98A6FD6C20B29ADB00C944B5 /* MessageTableViewCell.m */,
+				983D144E20B381E200465D8A /* MyJamsTableViewCell.xib */,
+				983D144B20B3816700465D8A /* MyJamsTableViewCell.h */,
+				983D144C20B3816700465D8A /* MyJamsTableViewCell.m */,
+				9815F24E20AC1638001AC7B1 /* SearchTableViewCell.xib */,
+				98339A6320ACF2C4001C91B1 /* SearchTableViewCell.h */,
+				98339A6420ACF2C4001C91B1 /* SearchTableViewCell.m */,
 			);
-			path = Message;
+			path = TableCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +344,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 98FFB2C920A40EEF00364C6F /* Build configuration list for PBXNativeTarget "Jam" */;
 			buildPhases = (
+				0F0F20F4F01BE19A19FE7183 /* [CP] Check Pods Manifest.lock */,
 				98FFB29920A40EEF00364C6F /* Sources */,
 				98FFB29A20A40EEF00364C6F /* Frameworks */,
 				98FFB29B20A40EEF00364C6F /* Resources */,
@@ -292,6 +362,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 98FFB2CC20A40EEF00364C6F /* Build configuration list for PBXNativeTarget "JamTests" */;
 			buildPhases = (
+				62166026511F3BC57BDABF78 /* [CP] Check Pods Manifest.lock */,
 				98FFB2B120A40EEF00364C6F /* Sources */,
 				98FFB2B220A40EEF00364C6F /* Frameworks */,
 				98FFB2B320A40EEF00364C6F /* Resources */,
@@ -310,6 +381,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 98FFB2CF20A40EEF00364C6F /* Build configuration list for PBXNativeTarget "JamUITests" */;
 			buildPhases = (
+				ADE504E01F89DCC3D2836C8C /* [CP] Check Pods Manifest.lock */,
 				98FFB2BC20A40EEF00364C6F /* Sources */,
 				98FFB2BD20A40EEF00364C6F /* Frameworks */,
 				98FFB2BE20A40EEF00364C6F /* Resources */,
@@ -401,6 +473,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0F0F20F4F01BE19A19FE7183 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Jam-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62166026511F3BC57BDABF78 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JamTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ADE504E01F89DCC3D2836C8C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JamUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		98FFB29920A40EEF00364C6F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -430,6 +559,7 @@
 				98FFB2D420A4108700364C6F /* Gradients.m in Sources */,
 				983D144A20B3811300465D8A /* MyJamsTableViewController.m in Sources */,
 				B872B5D720B7E856005A1B1B /* MessageController.m in Sources */,
+				B8E9BC9B20C60621005EF8C2 /* AppData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,6 +724,7 @@
 		};
 		98FFB2CA20A40EEF00364C6F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5E67A86E192B0731444B656 /* Pods-Jam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -610,6 +741,7 @@
 		};
 		98FFB2CB20A40EEF00364C6F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 098E33073C2414C41CFDCED6 /* Pods-Jam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -626,6 +758,7 @@
 		};
 		98FFB2CD20A40EEF00364C6F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C9D9259F040CCA87A970D6E /* Pods-JamTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -640,6 +773,7 @@
 		};
 		98FFB2CE20A40EEF00364C6F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 460541A5D5380228434B5CC2 /* Pods-JamTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -654,6 +788,7 @@
 		};
 		98FFB2D020A40EEF00364C6F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20A02FC1ED13C2D8D03BC6CA /* Pods-JamUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = JamUITests/Info.plist;
@@ -667,6 +802,7 @@
 		};
 		98FFB2D120A40EEF00364C6F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C80A43B092AA5E64174D057 /* Pods-JamUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = JamUITests/Info.plist;
