@@ -13,7 +13,7 @@
 @end
 
 @implementation LoginViewController
-@synthesize emailTextField, passwordTextField, loginBtn;
+@synthesize emailTextField, passwordTextField, loginBtn, loadingActivity;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,6 +30,11 @@
     */
     
     [self firebaseTests];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    //Hide Activity Indicator
+    loadingActivity.hidden = YES;
 }
 
 -(void)firebaseTests{
@@ -51,18 +56,54 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)alertShowWithTitle:(NSString *)titleInp andBody:(NSString *)bodyInp{
-    UIAlertController* alert;
-    alert = [UIAlertController alertControllerWithTitle:titleInp
-                                                message:bodyInp
-                                         preferredStyle:UIAlertControllerStyleAlert];
-    
-    [alert addAction:[UIAlertAction actionWithTitle:@"Ok!" style:UIAlertActionStyleDefault handler:nil]];
-    
-    [self presentViewController:alert animated:true completion:nil];
+//Login
+- (IBAction)Login:(id)sender {
+    @try {
+        //Login form validation
+        if([emailTextField.text isEqualToString:@""]){
+            //Email input field required
+            [self alertShowWithTitle:@"Empty Input Field" andBody:@"Please fill in email input field."];
+        }
+        else if ([passwordTextField.text isEqualToString:@""]){
+            //Password input field required
+            [self alertShowWithTitle:@"Empty Input Field" andBody:@"Please fill in password input field."];
+        }
+        else{
+            //Show Activity Indicator
+            loadingActivity.hidden = NO;
+            [loadingActivity startAnimating];
+            
+            //Login
+            [FIRAuth.auth signInWithEmail:emailTextField.text
+                                 password:passwordTextField.text
+                               completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
+                                   //Wait for firebase response to hide loading activity
+                                   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)),dispatch_get_main_queue(),
+                                                  ^{
+                                                      //Hide loading activity
+                                                      self.loadingActivity.hidden = YES;
+                                                      [self.loadingActivity stopAnimating];
+                                   
+                                                      if(authResult){
+                                                          //Login successful
+                                                          [self performSegueWithIdentifier:@"toJams" sender:self];
+                                                      }
+                                                      else{
+                                                          //Did not login, display alert message to user
+                                                          [self alertShowWithTitle:@"ERROR" andBody:error.localizedDescription];
+                                                      }
+                                                  });
+            }];
+        }
+        
+    } @catch (NSException *exception) {
+        //Hide loading activity
+        self.loadingActivity.hidden = YES;
+        [self.loadingActivity stopAnimating];
+        //Display error
+        [self alertShowWithTitle:@"ERROR" andBody:[exception reason]];
+    }
 }
-
-
 
 //Set view Gradients
 -(void)setGradients{
@@ -90,6 +131,16 @@
     
 }
 
+//Alert
+-(void)alertShowWithTitle:(NSString *)titleInp andBody:(NSString *)bodyInp{
+    UIAlertController* alert;
+    alert = [UIAlertController alertControllerWithTitle:titleInp
+                                                message:bodyInp
+                                         preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+    
+    [self presentViewController:alert animated:true completion:nil];
+}
 
 @end
 

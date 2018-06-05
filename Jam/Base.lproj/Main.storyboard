@@ -88,9 +88,13 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="20"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="r5K-RN-uQM" kind="show" identifier="toJams" id="enB-nU-aYL"/>
+                                                    <action selector="Login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NNQ-TL-nni"/>
                                                 </connections>
                                             </button>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="MBP-v3-sTk">
+                                                <rect key="frame" x="150" y="467" width="20" height="20"/>
+                                                <color key="color" red="0.85098039219999999" green="0.26274509800000001" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="xay-3f-Dal" firstAttribute="centerX" secondItem="9HV-oS-WHd" secondAttribute="centerX" id="48Y-Wn-kxs"/>
@@ -123,18 +127,23 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="Zvx-UM-tp3" secondAttribute="top" constant="20" id="1Em-qy-7wm"/>
                             <constraint firstItem="Zvx-UM-tp3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2C8-Yo-Quz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zvx-UM-tp3" secondAttribute="trailing" id="8Og-zF-jdg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MBP-v3-sTk" secondAttribute="bottom" constant="81" id="M0e-mX-qzH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="T22-l6-tOO" secondAttribute="trailing" constant="8" id="NMs-IQ-82d"/>
+                            <constraint firstItem="MBP-v3-sTk" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="P36-9R-J8a"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xRo-97-u3f" secondAttribute="trailing" constant="9" id="W5t-SH-ek0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Zvx-UM-tp3" secondAttribute="bottom" id="myW-ia-S6b"/>
                             <constraint firstItem="T22-l6-tOO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="p8A-LJ-zFL"/>
                             <constraint firstItem="xRo-97-u3f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="7" id="uuf-JP-fpn"/>
+                            <constraint firstItem="MBP-v3-sTk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="447" id="wGe-cV-Wfa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="N7k-qr-xVV" id="yc7-u4-S01"/>
+                        <outlet property="loadingActivity" destination="MBP-v3-sTk" id="EV1-Cw-Jv4"/>
                         <outlet property="loginBtn" destination="xay-3f-Dal" id="hYm-ck-Obp"/>
                         <outlet property="passwordTextField" destination="WId-iL-qxT" id="upX-ct-b67"/>
+                        <segue destination="r5K-RN-uQM" kind="show" identifier="toJams" id="TVA-uq-X6b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
