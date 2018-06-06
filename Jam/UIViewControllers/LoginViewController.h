@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Gradients.h"
 #import "InputIcons.h"
+#import "AppAlerts.h"
 
 @import Firebase;
 
@@ -18,11 +19,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 
+
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
 
 - (IBAction)Login:(id)sender;
 
 
--(void)alertShowWithTitle:(NSString *)titleInp andBody:(NSString *)bodyInp;
+
 
 @end

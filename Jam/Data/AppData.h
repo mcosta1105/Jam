@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <Firebase.h>
+#import "User.h"
+#import "AppAlerts.h"
 
 @interface AppData : NSObject
 
@@ -15,4 +17,7 @@
 @property (nonatomic) FIRDatabaseReference * dataNode;
 @property (nonatomic) FIRDatabaseReference * usersNode;
 
+@property NSString *USER_ID;
+
+-(void)InsertUser:(User *)user withUserId:(NSString *) userId;
 @end

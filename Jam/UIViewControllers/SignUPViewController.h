@@ -9,12 +9,20 @@
 #import <UIKit/UIKit.h>
 #import "Gradients.h"
 #import "InputIcons.h"
+#import "User.h"
+#import "AppData.h"
+#import "AppAlerts.h"
+
+@import Firebase;
 
 @interface SignUPViewController : UIViewController
+
+
 //Buttons
 @property (weak, nonatomic) IBOutlet UIButton *signupBtn;
 @property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
-
+//Activity
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
 //Inputs
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
@@ -22,5 +30,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *confirmPasswordTextField;
 @property (weak, nonatomic) IBOutlet UISwitch *termsSwitch;
 
+- (IBAction)SignUp:(id)sender;
+
+-(void)alertShowWithTitle:(NSString *)titleInp andBody:(NSString *)bodyInp;
 
 @end

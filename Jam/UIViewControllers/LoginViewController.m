@@ -21,15 +21,6 @@
     [self setGradients];
     [self setIcons];
     
-    //Set Text Field Borders
-    /*
-    self.emailTextField.layer.borderColor = [[UIColor colorWithRed:(220/255.0) green:(65/255.0) blue:(141/255.0) alpha:1.0]CGColor];
-    self.emailTextField.layer.backgroundColor = [[UIColor whiteColor] CGColor];
-    self.emailTextField.layer.borderWidth = 1.0;
-    self.emailTextField.layer.cornerRadius = 20.0;
-    */
-    
-    [self firebaseTests];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -37,19 +28,6 @@
     loadingActivity.hidden = YES;
 }
 
--(void)firebaseTests{
-    /*
-    [FIRAuth.auth createUserWithEmail:@"maycon@maycon.com"
-                             password:@"maycon1234"
-                           completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error)
-                                        {
-                                            if(error == nil){
-                                                [self alertShowWithTitle:@"Sucess!"
-                                                                 andBody:@"You have succesfully made a new user!"];
-                                            }
-                                        }];
-     */
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -61,12 +39,13 @@
     @try {
         //Login form validation
         if([emailTextField.text isEqualToString:@""]){
-            //Email input field required
-            [self alertShowWithTitle:@"Empty Input Field" andBody:@"Please fill in email input field."];
+            AppAlerts* alert = [[AppAlerts alloc]init];
+            [alert alertShowWithTitle:@"Empty Input Field" andBody:@"Please fill in email input field."];
         }
         else if ([passwordTextField.text isEqualToString:@""]){
             //Password input field required
-            [self alertShowWithTitle:@"Empty Input Field" andBody:@"Please fill in password input field."];
+            AppAlerts* alert = [[AppAlerts alloc]init];
+            [alert alertShowWithTitle:@"Empty Input Field" andBody:@"Please fill in password input field."];
         }
         else{
             //Show Activity Indicator
@@ -90,7 +69,8 @@
                                                       }
                                                       else{
                                                           //Did not login, display alert message to user
-                                                          [self alertShowWithTitle:@"ERROR" andBody:error.localizedDescription];
+                                                          AppAlerts* alert = [[AppAlerts alloc]init];
+                                                          [alert alertShowWithTitle:@"ERROR" andBody:error.localizedDescription];
                                                       }
                                                   });
             }];
@@ -101,7 +81,8 @@
         self.loadingActivity.hidden = YES;
         [self.loadingActivity stopAnimating];
         //Display error
-        [self alertShowWithTitle:@"ERROR" andBody:[exception reason]];
+        AppAlerts* alert = [[AppAlerts alloc]init];
+        [alert alertShowWithTitle:@"ERROR" andBody:[exception reason]];
     }
 }
 
@@ -131,16 +112,7 @@
     
 }
 
-//Alert
--(void)alertShowWithTitle:(NSString *)titleInp andBody:(NSString *)bodyInp{
-    UIAlertController* alert;
-    alert = [UIAlertController alertControllerWithTitle:titleInp
-                                                message:bodyInp
-                                         preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
-    
-    [self presentViewController:alert animated:true completion:nil];
-}
+
 
 @end
 

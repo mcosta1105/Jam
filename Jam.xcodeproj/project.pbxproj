@@ -45,6 +45,8 @@
 		B872B5DC20B7E873005A1B1B /* M_TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B872B5DA20B7E873005A1B1B /* M_TableViewCell.xib */; };
 		B8A82D1920B774E700AED2CF /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A82D1820B774E700AED2CF /* MyProfileViewController.m */; };
 		B8E9BC9B20C60621005EF8C2 /* AppData.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E9BC9A20C60621005EF8C2 /* AppData.m */; };
+		B8E9BCA920C65E61005EF8C2 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E9BCA820C65E61005EF8C2 /* User.m */; };
+		B8E9BCAC20C67FA7005EF8C2 /* AppAlerts.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E9BCAB20C67FA7005EF8C2 /* AppAlerts.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +139,10 @@
 		B8A82D1820B774E700AED2CF /* MyProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewController.m; sourceTree = "<group>"; };
 		B8E9BC9920C60621005EF8C2 /* AppData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppData.h; sourceTree = "<group>"; };
 		B8E9BC9A20C60621005EF8C2 /* AppData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppData.m; sourceTree = "<group>"; };
+		B8E9BCA720C65E61005EF8C2 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		B8E9BCA820C65E61005EF8C2 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		B8E9BCAA20C67FA7005EF8C2 /* AppAlerts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppAlerts.h; sourceTree = "<group>"; };
+		B8E9BCAB20C67FA7005EF8C2 /* AppAlerts.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppAlerts.m; sourceTree = "<group>"; };
 		ED5A09BDD71F96B880858BF7 /* libPods-JamUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JamUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5E67A86E192B0731444B656 /* Pods-Jam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Jam/Pods-Jam.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -233,6 +239,8 @@
 				B8E9BC9E20C609FF005EF8C2 /* Data */,
 				B8E9BC9D20C609B3005EF8C2 /* UIViewControllers */,
 				B8E9BC9C20C609A5005EF8C2 /* Models */,
+				B8E9BCAA20C67FA7005EF8C2 /* AppAlerts.h */,
+				B8E9BCAB20C67FA7005EF8C2 /* AppAlerts.m */,
 			);
 			path = Jam;
 			sourceTree = "<group>";
@@ -262,6 +270,8 @@
 				98339A6820ACF968001C91B1 /* Post.m */,
 				98A6FD7020B29CE100C944B5 /* Message.h */,
 				98A6FD7120B29CE100C944B5 /* Message.m */,
+				B8E9BCA720C65E61005EF8C2 /* User.h */,
+				B8E9BCA820C65E61005EF8C2 /* User.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -535,10 +545,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8E9BCA920C65E61005EF8C2 /* User.m in Sources */,
 				98339A6C20ACFF6D001C91B1 /* SearchTableViewController.m in Sources */,
 				98339A6520ACF2C4001C91B1 /* SearchTableViewCell.m in Sources */,
 				B859B80220B8D433008BD9F9 /* MoreViewController.m in Sources */,
 				98A6FD6420B2655D00C944B5 /* JamDetailsViewController.m in Sources */,
+				B8E9BCAC20C67FA7005EF8C2 /* AppAlerts.m in Sources */,
 				98A6FD7220B29CE100C944B5 /* Message.m in Sources */,
 				983D144D20B3816700465D8A /* MyJamsTableViewCell.m in Sources */,
 				98FFB2A520A40EEF00364C6F /* LoginViewController.m in Sources */,

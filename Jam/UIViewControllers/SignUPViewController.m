@@ -13,11 +13,13 @@
 @end
 
 @implementation SignUPViewController
-@synthesize signupBtn, cancelBtn, nameTextField, emailTextField, passwordTextField, confirmPasswordTextField ;
+@synthesize signupBtn, cancelBtn, nameTextField, emailTextField, passwordTextField, confirmPasswordTextField, loadingActivity, termsSwitch ;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view
+    
+    
     [self setGradients];
     [self setIcons];
     self.termsSwitch.transform = CGAffineTransformMakeScale(0.8, 0.8);
@@ -27,6 +29,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    //Hide Activity Indicator
+    loadingActivity.hidden = YES;
+    [termsSwitch setOn:false];
+ }
 
 /*
 #pragma mark - Navigation
@@ -73,4 +81,91 @@
     [confirm setIcon:@"padlock" forTextField:confirmPasswordTextField];
 }
 
+//Sign Up
+- (IBAction)SignUp:(id)sender {
+    
+    @try {
+        if ([termsSwitch isOn]) {
+            if ([nameTextField.text isEqualToString:@""]) {
+                //Name input field required
+                [self alertShowWithTitle:@"Empty Input Field" andBody:@"Please fill in name input field."];
+            }
+            else if ([emailTextField.text isEqualToString:@""]){
+                //Email input field required
+                [self alertShowWithTitle:@"Empty Input Field" andBody:@"Please fill in email input field."];
+            }
+            else if ([passwordTextField.text isEqualToString:@""]){
+                //Password input field required
+                [self alertShowWithTitle:@"Empty Input Field" andBody:@"Please fill in password input field."];
+            }
+            else if ([confirmPasswordTextField.text isEqualToString:@""]){
+                //Confirm password input field required
+                [self alertShowWithTitle:@"Empty Input Field" andBody:@"Please fill in confirm password input field."];
+            }
+            else if (![passwordTextField.text isEqualToString:confirmPasswordTextField.text]){
+                //Password does not match
+                [self alertShowWithTitle:@"Error" andBody:@"Confirm password does not match password."];
+            }
+            else{
+                //Show Activity Indicator
+                loadingActivity.hidden = NO;
+                [loadingActivity startAnimating];
+                
+                User* user = [[User alloc]init];
+                user.name = nameTextField.text;
+                user.email = emailTextField.text;
+                user.userDescription = @"";
+                user.portfolioLink = @"";
+                
+                [FIRAuth.auth createUserWithEmail:emailTextField.text
+                                         password:passwordTextField.text
+                                       completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
+                                           if(authResult != nil){
+                                               NSString* userId;
+                                               userId = [FIRAuth auth].currentUser.uid;
+                                               @try {
+                                                   AppData* data = [[AppData alloc]init];
+                                                   [data InsertUser:user withUserId:userId];
+                                                   [self performSegueWithIdentifier:@"toLogin" sender:self];
+                                               } @catch (NSException *exception) {
+                                                   [self alertShowWithTitle:@"Error" andBody:exception.reason];
+                                               }
+                                           }
+                                           else{
+                                               //Hide loading activity
+                                               self.loadingActivity.hidden = YES;
+                                               [self.loadingActivity stopAnimating];
+                                               [self alertShowWithTitle:@"Error" andBody:error.localizedDescription];
+                                           }
+                                           
+                                        }
+                 ];
+            }
+        }
+        else{
+            
+            //Display error
+            [self alertShowWithTitle:@"ERROR" andBody:@"You did not accept Terms and Conditions"];
+        }
+        
+    } @catch (NSException *exception) {
+        //Hide loading activity
+        self.loadingActivity.hidden = YES;
+        [self.loadingActivity stopAnimating];
+        //Display error
+        [self alertShowWithTitle:@"ERROR" andBody:[exception reason]];
+    }
+}
+
+//Alert
+-(void)alertShowWithTitle:(NSString *)titleInp andBody:(NSString *)bodyInp{
+    UIAlertController* alert;
+    alert = [UIAlertController alertControllerWithTitle:titleInp
+                                                message:bodyInp
+                                         preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+    
+    [self presentViewController:alert animated:true completion:nil];
+}
 @end
