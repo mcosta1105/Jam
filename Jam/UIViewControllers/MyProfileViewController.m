@@ -8,12 +8,15 @@
 
 #import "MyProfileViewController.h"
 
-@interface MyProfileViewController ()
+@interface MyProfileViewController (){
+    NSString* userId;
+}
 
 @end
 
 @implementation MyProfileViewController
-@synthesize changePicBtn, changePasswordBtn, saveBtn, descriptionTextView, nameTextField, emailTextField, passwordTextField, webLinkTextField;
+@synthesize changePicBtn, changePasswordBtn, saveBtn, descriptionTextView, nameTextField, emailTextField, passwordTextField, portfolioLink, loadingActivity;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -23,6 +26,11 @@
     descriptionTextView.layer.borderColor = [[UIColor colorWithRed:(200/255.0) green:(201/255.0) blue:(202/255.0) alpha:0.7]CGColor];
     descriptionTextView.layer.borderWidth = 1;
     descriptionTextView.layer.cornerRadius = 5;
+}
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,6 +64,55 @@
     [password setIcon:@"padlock" forTextField:passwordTextField];
     //Name
     InputIcons * web = [InputIcons alloc];
-    [web setIcon:@"link" forTextField:webLinkTextField];
+    [web setIcon:@"link" forTextField:portfolioLink];
 }
+
+-(void)loadData{
+    @try {
+        //Add loading activity
+        [loadingActivity startAnimating];
+        [loadingActivity setHidden:NO];
+        
+        AppData* data = [[AppData alloc]init];
+        User* user = [[User alloc]init];
+        
+        if ([FIRAuth auth].currentUser != nil) {
+            
+                userId = [FIRAuth auth].currentUser.uid;
+            
+                [[[[[data rootNode] child:@"users"] child:userId] child:@"profile"]
+                 observeSingleEventOfType:FIRDataEventTypeValue
+                 withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+                    if (snapshot != nil) {
+                        
+                        
+                        NSDictionary* firebaseData = snapshot.value;
+                        
+                        [user setName: [firebaseData valueForKey:@"name"]];
+                        [user setEmail: [firebaseData valueForKey:@"email"]];
+                        [user setPortfolioLink: [firebaseData valueForKey:@"portfolio"]];
+                        [user setUserDescription:[firebaseData valueForKey:@"description"]];
+                        
+                        self.nameTextField.text = user.name;
+                        self.emailTextField.text = user.email;
+                        self.portfolioLink.text = user.portfolioLink;
+                        self.descriptionTextView.text =  user.userDescription;
+                        
+                        //Stop and hide Activity Indicator
+                        self.loadingActivity.hidden = YES;
+                        [self.loadingActivity stopAnimating];
+                    }
+                }withCancelBlock:^(NSError * _Nonnull error) {
+                    AppAlerts* alert = [[AppAlerts alloc]init];
+                    [alert alertShowWithTitle:@"ERROR" andBody:error.localizedDescription];
+                }];
+        }
+        
+    } @catch (NSException *exception) {
+        //Display error
+        AppAlerts* alert = [[AppAlerts alloc]init];
+        [alert alertShowWithTitle:@"ERROR" andBody:exception.reason];
+    } 
+}
+
 @end

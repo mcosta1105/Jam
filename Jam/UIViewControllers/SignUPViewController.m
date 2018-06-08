@@ -114,8 +114,8 @@
                 User* user = [[User alloc]init];
                 user.name = nameTextField.text;
                 user.email = emailTextField.text;
-                user.userDescription = @"";
-                user.portfolioLink = @"";
+                user.userDescription = @"Add description about yourself";
+                user.portfolioLink = @"Add portfolio link";
                 
                 [FIRAuth.auth createUserWithEmail:emailTextField.text
                                          password:passwordTextField.text
@@ -126,7 +126,7 @@
                                                @try {
                                                    AppData* data = [[AppData alloc]init];
                                                    [data InsertUser:user withUserId:userId];
-                                                   [self performSegueWithIdentifier:@"toLogin" sender:self];
+                                                   [self performSegueWithIdentifier:@"toHome" sender:self];
                                                } @catch (NSException *exception) {
                                                    [self alertShowWithTitle:@"Error" andBody:exception.reason];
                                                }

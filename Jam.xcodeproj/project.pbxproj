@@ -235,12 +235,12 @@
 				98FFB2D320A4108700364C6F /* Gradients.m */,
 				98AA3FC320AA65EA00601D7D /* InputIcons.h */,
 				98AA3FC420AA65EA00601D7D /* InputIcons.m */,
+				B8E9BCAA20C67FA7005EF8C2 /* AppAlerts.h */,
+				B8E9BCAB20C67FA7005EF8C2 /* AppAlerts.m */,
 				B8E9BC9F20C60AE3005EF8C2 /* TableViewControllers */,
 				B8E9BC9E20C609FF005EF8C2 /* Data */,
 				B8E9BC9D20C609B3005EF8C2 /* UIViewControllers */,
 				B8E9BC9C20C609A5005EF8C2 /* Models */,
-				B8E9BCAA20C67FA7005EF8C2 /* AppAlerts.h */,
-				B8E9BCAB20C67FA7005EF8C2 /* AppAlerts.m */,
 			);
 			path = Jam;
 			sourceTree = "<group>";

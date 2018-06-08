@@ -10,6 +10,7 @@
 
 @implementation AppData
 
+@synthesize rootNode, usersNode, dataNode, USER_ID;
 //Constructor
 -(id)init{
     
@@ -18,9 +19,14 @@
     if(self){
         
         //[FIRApp configure];
-        _rootNode = [[FIRDatabase database] reference];
-        _usersNode = [_rootNode child:@"users"];
-        _dataNode = [_rootNode child:@"data"];
+        rootNode = [[FIRDatabase database] reference];
+        usersNode = [rootNode child:@"users"];
+        dataNode = [rootNode child:@"data"];
+        
+        //Get Current User ID
+        if(USER_ID == nil){
+            USER_ID = [FIRAuth auth].currentUser.uid;
+        }
         
     }
     
@@ -31,7 +37,7 @@
 -(void)InsertUser:(User *)user withUserId:(NSString *) userId{
     @try {
         
-        NSString *key = [[_rootNode child:@"users/"] child:userId].key;
+        NSString *key = [[rootNode child:@"users/"] child:userId].key;
         
         NSDictionary* userObj =
         @{
@@ -50,7 +56,7 @@
        
 
         //Insert into DB
-        [_rootNode updateChildValues:childUpdate
+        [rootNode updateChildValues:childUpdate
                 withCompletionBlock:^(NSError * _Nullable error,
                                       FIRDatabaseReference * _Nonnull ref)
          {
