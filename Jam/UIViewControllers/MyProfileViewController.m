@@ -115,4 +115,43 @@
     } 
 }
 
+//Save user profile to Firebase
+- (IBAction)save:(id)sender {
+    AppAlerts* alert = [[AppAlerts alloc]init];
+    @try {
+        //Validate text input fields
+        if([self.nameTextField.text isEqualToString:@""]){
+            [alert alertShowWithTitle:@"ERROR" andBody:@"Name"];
+        }
+        else if ([self.portfolioLink.text isEqualToString:@""]){
+            [alert alertShowWithTitle:@"ERROR" andBody:@"Portfolio"];
+        }
+        else if ([self.descriptionTextView.text isEqualToString:@""]){
+            [alert alertShowWithTitle:@"ERROR" andBody:@"Description"];
+        }
+        else{
+            
+            User* user = [[User alloc]init];
+            user.name = nameTextField.text;
+            user.portfolioLink = portfolioLink.text;
+            user.userDescription = descriptionTextView.text;
+            user.email = emailTextField.text;
+            
+            if(userId == nil){
+                userId = [FIRAuth auth].currentUser.uid;
+            }
+            
+            AppData* database = [[AppData alloc]init];
+            [database updateUser:user withUserId:userId];
+        }
+    } @catch (NSException *exception) {
+        [alert alertShowWithTitle:@"ERROR" andBody:exception.reason];
+    }
+}
+
+
+//Change user password
+- (IBAction)changePassword:(id)sender {
+    
+}
 @end

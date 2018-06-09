@@ -27,4 +27,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *saveBtn;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
 
+
+- (IBAction)save:(id)sender;
+- (IBAction)changePassword:(id)sender;
+
+
 @end

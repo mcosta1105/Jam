@@ -19,5 +19,7 @@
 
 @property NSString *USER_ID;
 
--(void)InsertUser:(User *)user withUserId:(NSString *) userId;
+-(void)insertUser:(User *)user withUserId:(NSString *) userId;
+-(void)updateUser:(User *)user withUserId:(NSString *) userId;
+-(void)changePassword:(NSString *)password;
 @end

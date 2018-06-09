@@ -1026,6 +1026,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="15"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="changePassword:" destination="ZcK-4s-AbG" eventType="touchUpInside" id="wbO-GN-Ktq"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Portfolio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UTY-6E-jdj">
                                                 <rect key="frame" x="8" y="298" width="304" height="30"/>
@@ -1061,6 +1064,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="15"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="save:" destination="ZcK-4s-AbG" eventType="touchUpInside" id="sZO-QS-E4m"/>
+                                                </connections>
                                             </button>
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Vf7-AI-nBJ">
                                                 <rect key="frame" x="150" y="137" width="20" height="20"/>

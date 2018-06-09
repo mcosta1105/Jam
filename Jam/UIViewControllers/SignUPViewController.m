@@ -125,7 +125,7 @@
                                                userId = [FIRAuth auth].currentUser.uid;
                                                @try {
                                                    AppData* data = [[AppData alloc]init];
-                                                   [data InsertUser:user withUserId:userId];
+                                                   [data insertUser:user withUserId:userId];
                                                    [self performSegueWithIdentifier:@"toHome" sender:self];
                                                } @catch (NSException *exception) {
                                                    [self alertShowWithTitle:@"Error" andBody:exception.reason];

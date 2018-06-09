@@ -11,5 +11,5 @@
 @interface AppAlerts : UIViewController
 
 -(void)alertShowWithTitle:(NSString *)title andBody:(NSString *)message;
-
+-(void)displayInputAlert: (NSString *) fieldName;
 @end

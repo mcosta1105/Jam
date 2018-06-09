@@ -33,8 +33,8 @@
     return self;
 }
 
-
--(void)InsertUser:(User *)user withUserId:(NSString *) userId{
+//Insert user into Firebase
+-(void)insertUser:(User *)user withUserId:(NSString *) userId{
     @try {
         
         NSString *key = [[rootNode child:@"users/"] child:userId].key;
@@ -47,14 +47,8 @@
           @"portfolio": [user portfolioLink]
         };
         
-        
-        
-        
         NSDictionary *childUpdate = @{[[@"/users/" stringByAppendingString:key] stringByAppendingString:@"/profile"]: userObj};
         
-        
-       
-
         //Insert into DB
         [rootNode updateChildValues:childUpdate
                 withCompletionBlock:^(NSError * _Nullable error,
@@ -70,6 +64,48 @@
              }
          }];
         
+    } @catch (NSException *exception) {
+        @throw exception.reason;
+    }
+}
+
+//Update user in FIrebase
+-(void)updateUser:(User *)user withUserId:(NSString *) userId{
+    AppAlerts* alert = [[AppAlerts alloc]init];
+    @try {
+        if (userId == nil) {
+            userId = [FIRAuth auth].currentUser.uid;
+        }
+        
+        NSDictionary* userData = [[NSDictionary alloc]initWithObjectsAndKeys:
+                                  user.name, @"name",
+                                  user.email, @"email",
+                                  user.userDescription, @"description",
+                                  user.portfolioLink, @"portfolio", nil];
+        [[[[rootNode child:@"users"]child:userId]child:@"profile"]setValue:userData withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+            if(error == nil){
+                //Success
+                [alert alertShowWithTitle:@"Update" andBody:@"Profile succesfull updated"];
+            }
+            else{
+                //Error
+                [alert alertShowWithTitle:@"ERROR" andBody:error.localizedDescription];
+            }
+        }];
+        
+    } @catch (NSException *exception) {
+        @throw exception.reason;
+    }
+}
+
+//Change Password
+-(void)changePassword:(NSString *)password{
+    @try {
+        [[FIRAuth auth].currentUser updatePassword:password completion:^(NSError * _Nullable error) {
+            if(error == nil){
+                return;
+            }
+        }];
     } @catch (NSException *exception) {
         @throw exception.reason;
     }
