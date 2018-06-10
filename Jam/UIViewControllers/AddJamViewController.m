@@ -31,6 +31,13 @@
     
 }
 
+
+- (void)viewWillAppear:(BOOL)animated{
+    self.loadingActivity.hidden = YES;
+    [self.loadingActivity stopAnimating];
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -71,4 +78,43 @@
     [textView resignFirstResponder];
 }
 
+
+- (IBAction)addJam:(id)sender {
+    @try {
+        self.loadingActivity.hidden = NO;
+        [self.loadingActivity startAnimating];
+        
+        Post* post = [[Post alloc]init];
+        
+        post.title = self.titleTextField.text;
+        post.date = self.dateTextField.text;
+        post.time = self.timeTextField.text;
+        post.address = self.addressTextField.text;
+        post.postDescription = self.descriptionTextView.text;
+        
+        AppData* database = [[AppData alloc]init];
+        [database insertPost:post];
+        
+        self.loadingActivity.hidden = YES;
+        [self.loadingActivity stopAnimating];
+        
+        [self clearForm];
+        
+    } @catch (NSException *exception) {
+        self.loadingActivity.hidden = YES;
+        [self.loadingActivity stopAnimating];
+        
+        AppAlerts* alert = [[AppAlerts alloc]init];
+        [alert alertShowWithTitle:@"ERROR" andBody:exception.reason];
+    }
+}
+
+//Cleans form after insert
+-(void)clearForm{
+    self.titleTextField.text = @"";
+    self.timeTextField.text = @"";
+    self.dateTextField.text = @"";
+    self.descriptionTextView.text = @"";
+    self.addressTextField.text = @"";
+}
 @end

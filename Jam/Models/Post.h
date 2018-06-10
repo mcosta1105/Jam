@@ -13,4 +13,5 @@
 @property (weak, nonatomic) NSString *address;
 @property (weak, nonatomic) NSString *date;
 @property (weak, nonatomic) NSString *time;
+@property (weak, nonatomic) NSString *postDescription;
 @end

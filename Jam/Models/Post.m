@@ -10,6 +10,6 @@
 
 @implementation Post
 
-@synthesize title, time, address, date;
+@synthesize title, time, address, date, postDescription;
 
 @end

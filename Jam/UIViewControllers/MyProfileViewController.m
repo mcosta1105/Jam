@@ -153,5 +153,73 @@
 //Change user password
 - (IBAction)changePassword:(id)sender {
     
+    @try {
+        UIAlertController *alert = [UIAlertController
+                                    alertControllerWithTitle: @"Change Password"
+                                    message:@"Enter a new password"
+                                    preferredStyle:UIAlertControllerStyleAlert];
+        
+        //Add textfield
+        [alert addTextFieldWithConfigurationHandler:^(UITextField *newPassword) {
+            [newPassword setPlaceholder:@"New Password"];
+            [newPassword setSecureTextEntry:YES];
+            
+        }];
+        
+        [alert addTextFieldWithConfigurationHandler:^(UITextField *confirmNewPassword) {
+            [confirmNewPassword setPlaceholder:@"Confirm New Password"];
+            [confirmNewPassword setSecureTextEntry:YES];
+            
+        }];
+        
+        //Buttons
+        UIAlertAction *cancelButton = [UIAlertAction
+                                       actionWithTitle: @"Cancel"
+                                       style:UIAlertActionStyleCancel
+                                       handler:^(UIAlertAction * _Nonnull action)
+                                       {
+                                           [alert dismissViewControllerAnimated:YES completion:nil];
+                                       }];
+        
+        UIAlertAction *confirmButton = [UIAlertAction
+                                        actionWithTitle: @"Confirm"
+                                        style:UIAlertActionStyleDefault
+                                        handler:^(UIAlertAction * _Nonnull action){
+                                            
+                                            UITextField* newPwd = alert.textFields.firstObject;
+                                            UITextField* confirmNewPwd = alert.textFields.lastObject;
+                                            
+                                            if([newPwd.text isEqualToString:@""]){
+                                                //Display alert
+                                                AppAlerts* alert = [[AppAlerts alloc]init];
+                                                [alert alertShowWithTitle:@"ERROR" andBody:@"New password text field empty"];
+                                            }else if ([confirmNewPwd.text isEqualToString:@""]){
+                                                //Display alert
+                                                AppAlerts* alert = [[AppAlerts alloc]init];
+                                                [alert alertShowWithTitle:@"ERROR" andBody:@"Confirm new password text field empty"];
+                                            }
+                                            else if (![newPwd.text isEqualToString:confirmNewPwd.text]){
+                                                //Display alert
+                                                AppAlerts* alert = [[AppAlerts alloc]init];
+                                                [alert alertShowWithTitle:@"ERROR" andBody:@"Confirm new password must be equal to new password"];
+                                            }
+                                            else{
+                                                AppData* databse = [[AppData alloc]init];
+                                                [databse changePassword:newPwd.text];
+                                                AppAlerts* alert = [[AppAlerts alloc]init];
+                                                [alert alertShowWithTitle:@"New Password" andBody:@"Nem password successfully changed"];
+                                            }
+                                        }];
+        //Add Confirm button
+        [alert addAction: confirmButton];
+        [alert addAction: cancelButton];
+        
+        //Display Alert
+        [self presentViewController:alert animated:YES completion:nil];
+    } @catch (NSException *exception) {
+        AppAlerts* alert = [[AppAlerts alloc]init];
+        [alert alertShowWithTitle:@"ERROR" andBody:exception.reason];
+    }
+    
 }
 @end

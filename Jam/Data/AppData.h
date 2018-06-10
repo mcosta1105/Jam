@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <Firebase.h>
 #import "User.h"
+#import "Post.h"
 #import "AppAlerts.h"
 
 @interface AppData : NSObject
@@ -22,4 +23,5 @@
 -(void)insertUser:(User *)user withUserId:(NSString *) userId;
 -(void)updateUser:(User *)user withUserId:(NSString *) userId;
 -(void)changePassword:(NSString *)password;
+-(void)insertPost:(Post*)post;
 @end

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Gradients.h"
+#import "AppData.h"
+#import "AppAlerts.h"
+#import "Post.h"
 
 @interface AddJamViewController : UIViewController<UITextViewDelegate>
 
@@ -17,5 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *addressTextField;
 @property (weak, nonatomic) IBOutlet UITextField *dateTextField;
 @property (weak, nonatomic) IBOutlet UITextField *timeTextField;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
+- (IBAction)addJam:(id)sender;
 
 @end
