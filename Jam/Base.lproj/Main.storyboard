@@ -583,7 +583,7 @@
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="278" id="93f-8u-Ogl"/>
                                                     <constraint firstAttribute="height" constant="30" id="wQc-FQ-MRd"/>
                                                 </constraints>
-                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -604,7 +604,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="XqT-Q8-aUF"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="278" id="fqw-GX-s8z"/>
                                                 </constraints>
-                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" textContentType="location"/>
                                             </textField>
@@ -614,7 +614,7 @@
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="278" id="18Q-Al-9Hh"/>
                                                     <constraint firstAttribute="height" constant="30" id="6dU-BH-OAI"/>
                                                 </constraints>
-                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -624,7 +624,7 @@
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="278" id="BBw-EV-eUE"/>
                                                     <constraint firstAttribute="height" constant="30" id="epQ-by-KJk"/>
                                                 </constraints>
-                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -772,7 +772,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="My Jams" id="bp2-da-Aig"/>
                     <connections>
-                        <segue destination="lzb-mv-0Xj" kind="show" identifier="toEditJam" id="Ca1-TR-2B0"/>
+                        <segue destination="lzb-mv-0Xj" kind="show" identifier="toEditJam" id="kFJ-Xp-0Di"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S7L-p3-K57" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -799,7 +799,7 @@
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="278" id="6h2-qi-A1s"/>
                                                     <constraint firstAttribute="height" constant="30" id="76V-pX-i3W"/>
                                                 </constraints>
-                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -819,7 +819,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="Ts5-Xa-hfR"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="278" id="fg3-5D-y9o"/>
                                                 </constraints>
-                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" textContentType="location"/>
                                             </textField>
@@ -829,7 +829,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="FMR-Si-OFk"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="278" id="bZy-b2-Bxi"/>
                                                 </constraints>
-                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -839,7 +839,7 @@
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="278" id="Yzc-cX-DoX"/>
                                                     <constraint firstAttribute="height" constant="30" id="j77-9t-FAM"/>
                                                 </constraints>
-                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -911,8 +911,12 @@
                         <viewLayoutGuide key="safeArea" id="tQJ-WE-kxD"/>
                     </view>
                     <connections>
+                        <outlet property="addressTextField" destination="osv-ed-8px" id="3Ba-7Y-bLg"/>
+                        <outlet property="dateTextField" destination="Ktr-06-yEI" id="cR8-TK-PLX"/>
                         <outlet property="deleteBtn" destination="JsT-9m-4Qo" id="3N7-ot-zVE"/>
                         <outlet property="descriptionTextView" destination="UuN-M1-OOA" id="e4c-cH-0rb"/>
+                        <outlet property="timeTextField" destination="scn-so-s9x" id="bwd-WN-3kS"/>
+                        <outlet property="titleTextField" destination="ylS-YO-sAw" id="FDp-YS-SPi"/>
                         <outlet property="updateBtn" destination="hGe-9k-VPA" id="aKM-jB-fyB"/>
                     </connections>
                 </viewController>

@@ -13,7 +13,7 @@
 @end
 
 @implementation EditJamViewController
-@synthesize updateBtn, deleteBtn, descriptionTextView;
+@synthesize updateBtn, deleteBtn, descriptionTextView, dataSegue, titleTextField, timeTextField, addressTextField, dateTextField;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -22,6 +22,9 @@
     descriptionTextView.layer.borderColor = [[UIColor colorWithRed:(200/255.0) green:(201/255.0) blue:(202/255.0) alpha:0.7]CGColor];
     descriptionTextView.layer.borderWidth = 1;
     descriptionTextView.layer.cornerRadius = 5;
+    descriptionTextView.textColor = [UIColor darkGrayColor];
+    
+    [self configureView];
     
 }
 
@@ -49,6 +52,15 @@
     [deleteBtn.layer addSublayer:deleteBtnLayer];
 }
 
-- (IBAction)nameTextField:(UITextField *)sender {
+
+
+- (void)configureView {
+    if(self.dataSegue) {
+        titleTextField.text = dataSegue.title;
+        descriptionTextView.text = dataSegue.postDescription;
+        timeTextField.text = dataSegue.time;
+        dateTextField.text = dataSegue.date;
+        addressTextField.text = dataSegue.address;
+    }
 }
 @end

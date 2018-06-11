@@ -7,7 +7,7 @@
 //
 
 #import "MyJamsTableViewController.h"
-
+#import "EditJamViewController.h"
 @interface MyJamsTableViewController (){
     NSString* userId;
 }
@@ -104,7 +104,25 @@
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    /*
+    Post* post = [_data objectAtIndex:indexPath.item];
+    EditJamViewController* editVC = [[EditJamViewController alloc]initWithNibName:@"EditJamViewController" bundle:nil];
+    editVC.dataSegue = post;
+    */
     [self performSegueWithIdentifier:@"toEditJam" sender:self];
+}
+
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"toEditJam"])
+    {
+        Post *post = [_data objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        EditJamViewController *viewController = segue.destinationViewController;
+        viewController.dataSegue = post;
+    }
 }
 
 /*
@@ -140,15 +158,5 @@
     return YES;
 }
 */
-
-
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
- [segue destinationViewController];
-}
 
 @end
