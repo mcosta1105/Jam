@@ -23,7 +23,7 @@
     self.descriptionTextView.delegate = self;
     
     descriptionTextView.text =@"Description...";
-    descriptionTextView.textColor = [UIColor colorWithRed:(213/255.0) green:(67/255.0) blue:(147/255.0) alpha:1.0];
+    descriptionTextView.textColor = [UIColor lightGrayColor];
     //descriptionTextView.textColor = mainColor;
     descriptionTextView.layer.borderColor = [[UIColor colorWithRed:(200/255.0) green:(201/255.0) blue:(202/255.0) alpha:0.7]CGColor];
     descriptionTextView.layer.borderWidth = 1;
@@ -64,7 +64,7 @@
 {
     if ([textView.text isEqualToString:@"Description..."]) {
         textView.text = @"";
-        textView.textColor = [UIColor darkGrayColor];
+        textView.textColor = [UIColor lightGrayColor];
     }
     [textView becomeFirstResponder];
 }
@@ -73,7 +73,7 @@
 {
     if ([textView.text isEqualToString:@""]) {
         textView.text = @"Description...";
-        textView.textColor = [UIColor colorWithRed:(213/255.0) green:(67/255.0) blue:(147/255.0) alpha:1.0];
+        textView.textColor = [UIColor lightGrayColor];
     }
     [textView resignFirstResponder];
 }

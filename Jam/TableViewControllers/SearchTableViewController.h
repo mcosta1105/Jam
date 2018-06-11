@@ -9,10 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "SearchTableViewCell.h"
 #import "Post.h"
+#import "AppData.h"
+
+@import Firebase;
 
 
 @interface SearchTableViewController : UITableViewController
 {
     NSMutableArray * _data;
 }
+
+@property (nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
+
+@property (strong, nonatomic) FIRDatabaseReference *ref;
 @end

@@ -9,9 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "Post.h"
 #import "MyJamsTableViewCell.h"
+#import "AppData.h"
+@import Firebase;
 
 @interface MyJamsTableViewController : UITableViewController
 {
     NSMutableArray * _data;
 }
+@property (nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
+
+@property (strong, nonatomic) FIRDatabaseReference *ref;
 @end

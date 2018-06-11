@@ -13,7 +13,7 @@
 #import "User.h"
 #import "AppAlerts.h"
 
-@interface MyProfileViewController : UIViewController
+@interface MyProfileViewController : UIViewController<UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UIButton *changePicBtn;

@@ -8,42 +8,69 @@
 
 #import "MyJamsTableViewController.h"
 
-@interface MyJamsTableViewController ()
+@interface MyJamsTableViewController (){
+    NSString* userId;
+}
 
 @end
 
 @implementation MyJamsTableViewController
-
+@synthesize loadingActivity;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.ref = [[FIRDatabase database]reference];
+    userId = [FIRAuth auth].currentUser.uid;
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    _data = [NSMutableArray array];
-    
-    NSInteger numberOfItems = 5;
-    
-    for(NSInteger i = 1; i <= numberOfItems; i++){
-        Post *myPost = [[Post alloc]init];
-        myPost.title = @"I need a drummer urgent!";
-        myPost.date = @"01/06/2018";
-        myPost.time = @"18:00";
-        myPost.address = @"7 Kelly Street, Ultimo NSW 2007";
-        
-        [_data addObject:myPost];
-    }
-    NSLog(@"%@", _data);
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    loadingActivity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    loadingActivity.center = self.view.center;
+    [self.tableView addSubview:loadingActivity];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [loadingActivity setHidesWhenStopped:YES];
 }
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self prepareData];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)prepareData{
+    [self.loadingActivity startAnimating];
+    //Firebase Query
+    NSString* jamPostPath = [NSString stringWithFormat:@"data/posts"];
+    
+    FIRDatabaseQuery *query = [[[self.ref child:jamPostPath] queryOrderedByChild:@"uid"]queryEqualToValue:userId];
+    
+    _data = [[NSMutableArray alloc]init];
+    
+    [query observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        Post* post = [[Post alloc]init];
+        [post setTitle: [snapshot.value objectForKey:@"title"]];
+        [post setDate: [snapshot.value objectForKey:@"date"]];
+        [post setTime: [snapshot.value objectForKey:@"time"]];
+        [post setAddress: [snapshot.value objectForKey:@"address"]];
+        [post setPostDescription: [snapshot.value objectForKey:@"description"]];
+        
+        [self->_data addObject:post];
+        [self.tableView reloadData];
+        
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        [self.loadingActivity stopAnimating];
+        
+    }withCancelBlock:^(NSError * _Nonnull error) {
+        [self.loadingActivity stopAnimating];
+        
+        AppAlerts* alert = [[AppAlerts alloc]init];
+        [alert alertShowWithTitle:@"ERROR" andBody:error.localizedDescription];
+    }];
 }
 
 #pragma mark - Table view data source
@@ -61,6 +88,7 @@
  static NSString *cellIdentifier = @"myCell";
  
  [self.tableView registerNib:[UINib nibWithNibName:@"MyJamsTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
+    
  MyJamsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
  
  

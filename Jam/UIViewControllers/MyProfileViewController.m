@@ -23,6 +23,7 @@
     [self setGradients];
     [self setIcons];
     
+    self.descriptionTextView.delegate = self;
     descriptionTextView.layer.borderColor = [[UIColor colorWithRed:(200/255.0) green:(201/255.0) blue:(202/255.0) alpha:0.7]CGColor];
     descriptionTextView.layer.borderWidth = 1;
     descriptionTextView.layer.cornerRadius = 5;
@@ -65,6 +66,24 @@
     //Name
     InputIcons * web = [InputIcons alloc];
     [web setIcon:@"link" forTextField:portfolioLink];
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@"Description..."]) {
+        textView.text = @"";
+        textView.textColor = [UIColor lightGrayColor];
+    }
+    [textView becomeFirstResponder];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@""]) {
+        textView.text = @"Description...";
+        textView.textColor = [UIColor lightGrayColor];
+    }
+    [textView resignFirstResponder];
 }
 
 -(void)loadData{

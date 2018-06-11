@@ -116,6 +116,42 @@
     @try {
         NSString *userID = [FIRAuth auth].currentUser.uid;
         
+        NSString *postPath = [NSString stringWithFormat:@"data/posts"];
+        
+        NSString *key = [[rootNode child:postPath] childByAutoId].key;
+        
+        NSDictionary* postDic = @{
+                                  @"uid":userID,
+                                  @"title":[post title],
+                                  @"time": [post time],
+                                  @"address": [post address],
+                                  @"date": [post date],
+                                  @"description": [post postDescription]
+                                  };
+        NSDictionary *childUpdate = @{[NSString stringWithFormat:@"%@/%@", postPath, key]: postDic};
+        
+        [rootNode updateChildValues:childUpdate withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+            if (error == nil) {
+                AppAlerts* alert = [[AppAlerts alloc]init];
+                [alert alertShowWithTitle:@"" andBody:@"New post succesfully added"];
+            }
+            else{
+                AppAlerts* alert = [[AppAlerts alloc]init];
+                [alert alertShowWithTitle:@"ERROR" andBody:error.localizedDescription];
+            }
+        }];
+        
+    } @catch (NSException *exception) {
+        @throw exception.reason;
+    }
+}
+
+/*
+//Insert Jam Post
+-(void)insertPost:(Post*)post{
+    @try {
+        NSString *userID = [FIRAuth auth].currentUser.uid;
+        
         NSString *postPath = [NSString stringWithFormat:@"users/%@/posts", userID];
         
         NSString *key = [[rootNode child:postPath] childByAutoId].key;
@@ -144,5 +180,5 @@
         @throw exception.reason;
     }
 }
-
+*/
 @end

@@ -8,18 +8,28 @@
 
 #import "SearchTableViewController.h"
 
-@interface SearchTableViewController ()
-
+@interface SearchTableViewController (){
+    NSString* userId;
+}
 @end
-
 @implementation SearchTableViewController
-
+@synthesize  loadingActivity;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.ref = [[FIRDatabase database]reference];
+    userId = [FIRAuth auth].currentUser.uid;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    
+    loadingActivity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    loadingActivity.center = self.view.center;
+    [self.tableView addSubview:loadingActivity];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [loadingActivity setHidesWhenStopped:YES];
+    /*
     _data = [NSMutableArray array];
     
     NSInteger numberOfItems = 5;
@@ -34,7 +44,13 @@
         [_data addObject:myPost];
     }
     NSLog(@"%@", _data);
-    
+    */
+}
+
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self prepareData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,6 +59,37 @@
 }
 
 #pragma mark - Table view data source
+-(void)prepareData{
+    [loadingActivity startAnimating];
+    
+    //Firebase Query
+    NSString* jamPostPath = [NSString stringWithFormat:@"data/posts"];
+    
+    FIRDatabaseQuery *query = [[self.ref child:jamPostPath] queryOrderedByKey];
+    
+    _data = [[NSMutableArray alloc]init];
+    
+    [query observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        Post* post = [[Post alloc]init];
+        [post setTitle: [snapshot.value objectForKey:@"title"]];
+        [post setDate: [snapshot.value objectForKey:@"date"]];
+        [post setTime: [snapshot.value objectForKey:@"time"]];
+        [post setAddress: [snapshot.value objectForKey:@"address"]];
+        [post setPostDescription: [snapshot.value objectForKey:@"description"]];
+        
+        [self->_data addObject:post];
+        [self.tableView reloadData];
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        
+        [self.loadingActivity stopAnimating];
+    }withCancelBlock:^(NSError * _Nonnull error) {
+        [self.loadingActivity stopAnimating];
+        
+        AppAlerts* alert = [[AppAlerts alloc]init];
+        [alert alertShowWithTitle:@"ERROR" andBody:error.localizedDescription];
+    }];
+}
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -75,6 +122,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self performSegueWithIdentifier:@"toJamDetails" sender:self];
 }
+
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
