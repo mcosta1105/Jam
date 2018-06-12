@@ -2,7 +2,7 @@
 //  EditJamViewController.m
 //  Jam
 //
-//  Created by Isabele Araujo on 26/5/18.
+//  Created by 5661 on 26/5/18.
 //  Copyright © 2018 5661. All rights reserved.
 //
 

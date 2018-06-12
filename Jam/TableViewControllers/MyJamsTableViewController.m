@@ -31,9 +31,13 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [loadingActivity setHidesWhenStopped:YES];
 }
+
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self prepareData];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.loadingActivity stopAnimating];
+    });
 }
 
 
@@ -58,6 +62,7 @@
         [post setTime: [snapshot.value objectForKey:@"time"]];
         [post setAddress: [snapshot.value objectForKey:@"address"]];
         [post setPostDescription: [snapshot.value objectForKey:@"description"]];
+        [post setUid: [snapshot.value objectForKey:@"uid"]];
         
         [self->_data addObject:post];
         [self.tableView reloadData];
@@ -104,16 +109,8 @@
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    /*
-    Post* post = [_data objectAtIndex:indexPath.item];
-    EditJamViewController* editVC = [[EditJamViewController alloc]initWithNibName:@"EditJamViewController" bundle:nil];
-    editVC.dataSegue = post;
-    */
     [self performSegueWithIdentifier:@"toEditJam" sender:self];
 }
-
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

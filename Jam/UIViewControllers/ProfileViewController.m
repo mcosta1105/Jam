@@ -13,12 +13,13 @@
 @end
 
 @implementation ProfileViewController
-@synthesize profileImg;
+@synthesize profileImg, dataSegue, nameLabel, descriptionTextView, portfolioLable;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setGradients];
+    [self configureView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,8 +34,12 @@
     [self.view.layer insertSublayer:gradientLayer atIndex:0];
 }
 
--(void)getProfileViewData{
-    
+-(void)configureView{
+    if (self.dataSegue) {
+        nameLabel.text = dataSegue.name;
+        descriptionTextView.text = dataSegue.userDescription;
+        portfolioLable.text = dataSegue.portfolioLink;
+    }
 }
 
 @end

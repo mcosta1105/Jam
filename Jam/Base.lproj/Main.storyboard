@@ -233,7 +233,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="25"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="8pn-hE-3ey" kind="show" identifier="toProfile" id="1F4-NV-3X6"/>
+                                                    <action selector="viewProfile:" destination="63f-qF-tZG" eventType="touchUpInside" id="KgU-BG-fHn"/>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="cfb-eR-FSu">
@@ -368,7 +368,14 @@
                         <viewLayoutGuide key="safeArea" id="g5R-Mu-AWU"/>
                     </view>
                     <connections>
+                        <outlet property="addressLabel" destination="YLK-oA-QYW" id="tzs-z2-MGZ"/>
+                        <outlet property="dateLabel" destination="fT9-S7-1hn" id="ZwI-7s-gRR"/>
+                        <outlet property="descriptionTextView" destination="y9m-Ty-cTr" id="DP9-uS-wva"/>
                         <outlet property="messageBtn" destination="W7x-x8-6Lq" id="kDz-Tn-sCg"/>
+                        <outlet property="nameLabel" destination="BGn-E5-raD" id="cZb-pO-7wz"/>
+                        <outlet property="timeLabel" destination="94x-O4-YDY" id="Wsb-iy-TvS"/>
+                        <outlet property="titleLabel" destination="bp2-a6-TwZ" id="pqE-U1-kMy"/>
+                        <segue destination="8pn-hE-3ey" kind="show" identifier="toProfile" id="iju-28-abC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Db-G1-TYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -465,6 +472,9 @@
                         <viewLayoutGuide key="safeArea" id="aPf-fU-cYK"/>
                     </view>
                     <connections>
+                        <outlet property="descriptionTextView" destination="ADw-QQ-m5m" id="rue-e9-SrS"/>
+                        <outlet property="nameLabel" destination="a60-eB-wjw" id="HB8-hq-10r"/>
+                        <outlet property="portfolioLable" destination="spw-XO-0di" id="JeY-OY-r7a"/>
                         <outlet property="profileImg" destination="DWq-c0-xXB" id="d4c-on-tno"/>
                     </connections>
                 </viewController>

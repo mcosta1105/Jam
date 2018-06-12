@@ -7,6 +7,7 @@
 //
 
 #import "SearchTableViewController.h"
+#import "JamDetailsViewController.h"
 
 @interface SearchTableViewController (){
     NSString* userId;
@@ -29,28 +30,17 @@
     [self.tableView addSubview:loadingActivity];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [loadingActivity setHidesWhenStopped:YES];
-    /*
-    _data = [NSMutableArray array];
     
-    NSInteger numberOfItems = 5;
     
-    for(NSInteger i = 1; i <= numberOfItems; i++){
-        Post *myPost = [[Post alloc]init];
-        myPost.title = @"I need a drummer urgent!";
-        myPost.date = @"01/06/2018";
-        myPost.time = @"18:00";
-        myPost.address = @"7 Kelly Street, Ultimo NSW 2007";
-        
-        [_data addObject:myPost];
-    }
-    NSLog(@"%@", _data);
-    */
 }
 
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self prepareData];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.loadingActivity stopAnimating];
+    });
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,12 +66,14 @@
         [post setTime: [snapshot.value objectForKey:@"time"]];
         [post setAddress: [snapshot.value objectForKey:@"address"]];
         [post setPostDescription: [snapshot.value objectForKey:@"description"]];
+        [post setUid: [snapshot.value objectForKey:@"uid"]];
         
         [self->_data addObject:post];
         [self.tableView reloadData];
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         
         [self.loadingActivity stopAnimating];
+        
     }withCancelBlock:^(NSError * _Nonnull error) {
         [self.loadingActivity stopAnimating];
         
@@ -123,6 +115,15 @@
     [self performSegueWithIdentifier:@"toJamDetails" sender:self];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"toJamDetails"])
+    {
+        Post *post = [_data objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        JamDetailsViewController *viewController = segue.destinationViewController;
+        viewController.dataSegue = post;
+    }
+}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -170,12 +171,12 @@
 
 
 #pragma mark - Navigation
-
+/*
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
         [segue destinationViewController];
     // Pass the selected object to the new view controller.
 }
-
+*/
 @end
