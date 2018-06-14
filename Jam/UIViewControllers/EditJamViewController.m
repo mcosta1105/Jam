@@ -24,8 +24,13 @@
     descriptionTextView.layer.cornerRadius = 5;
     descriptionTextView.textColor = [UIColor darkGrayColor];
     
-    [self configureView];
+    //[self configureView];
     
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self configureView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,13 +45,13 @@
     [self.view.layer insertSublayer:gradientLayer atIndex:0];
     
     //Update Button gradient
-    CAGradientLayer *updateBtnLayer = [Gradients blueBtnGradient];
+    CAGradientLayer *updateBtnLayer = [Gradients mainBtnGradient];
     updateBtnLayer.frame = updateBtn.layer.bounds;
     updateBtnLayer.cornerRadius = updateBtn.layer.cornerRadius;
     [updateBtn.layer addSublayer:updateBtnLayer];
     
     //Delete Button gradient
-    CAGradientLayer *deleteBtnLayer = [Gradients mainBtnGradient];
+    CAGradientLayer *deleteBtnLayer = [Gradients blueBtnGradient];
     deleteBtnLayer.frame = deleteBtn.layer.bounds;
     deleteBtnLayer.cornerRadius = deleteBtn.layer.cornerRadius;
     [deleteBtn.layer addSublayer:deleteBtnLayer];
@@ -62,5 +67,28 @@
         dateTextField.text = dataSegue.date;
         addressTextField.text = dataSegue.address;
     }
+}
+
+- (IBAction)updatePost:(id)sender {
+    Post* post = [[Post alloc]init];
+    
+    post.postId = dataSegue.postId;
+    post.userId = dataSegue.userId;
+    post.title = titleTextField.text;
+    post.postDescription = descriptionTextView.text;
+    post.date = dateTextField.text;
+    post.time = timeTextField.text;
+    post.address = addressTextField.text;
+    
+    AppData* database = [[AppData alloc]init];
+    
+    [database updatePost:post];
+    //[self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)deletePost:(id)sender {
+    AppData* database = [[AppData alloc]init];
+    [database deletePost:dataSegue];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

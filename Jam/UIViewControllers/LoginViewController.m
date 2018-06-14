@@ -26,7 +26,12 @@
 - (void)viewWillAppear:(BOOL)animated{
     //Hide Activity Indicator
     loadingActivity.hidden = YES;
+    
+    if(!FIRApp.defaultApp){
+        [FIRApp configure];
+    }
 }
+
 
 
 - (void)didReceiveMemoryWarning {

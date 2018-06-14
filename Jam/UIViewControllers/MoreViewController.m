@@ -32,4 +32,26 @@
     [self.view.layer insertSublayer:gradientLayer atIndex:0];
 }
 
+- (IBAction)logOut:(id)sender {
+    @try{
+        NSError *error;
+        BOOL status = [[FIRAuth auth] signOut:&error];
+        
+        if (!status) {
+            AppAlerts *alert = [[AppAlerts alloc]init];
+            [alert alertShowWithTitle:@"ERROR" andBody:[NSString stringWithFormat:@"IF"]];
+            return;
+        }else{
+            [[FIRApp defaultApp]deleteApp:^(BOOL success) {
+                if(success){
+                    [self performSegueWithIdentifier:@"logOut" sender:nil];
+                }
+            }];
+        }
+    }
+    @catch(NSException *ex){
+        AppAlerts* alert = [[AppAlerts alloc]init];
+        [alert alertShowWithTitle:@"ERROR" andBody:@"ex"];
+    }
+}
 @end

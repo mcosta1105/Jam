@@ -68,7 +68,7 @@
         //Semaphore to execute async func
         dispatch_semaphore_t sema = dispatch_semaphore_create(0);
         
-        [[[[[data rootNode] child:@"users"] child:dataSegue.uid] child:@"profile"]
+        [[[[[data rootNode] child:@"users"] child:dataSegue.userId] child:@"profile"]
          observeSingleEventOfType:FIRDataEventTypeValue
          withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
              if (snapshot != nil) {

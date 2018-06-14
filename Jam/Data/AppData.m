@@ -112,7 +112,7 @@
 }
 
 //Insert Jam Post
--(void)insertPost:(Post*)post{
+-(void)insertPost:(Post*) post{
     @try {
         NSString *userID = [FIRAuth auth].currentUser.uid;
         
@@ -121,6 +121,7 @@
         NSString *key = [[rootNode child:postPath] childByAutoId].key;
         
         NSDictionary* postDic = @{
+                                  @"id":key,
                                   @"uid":userID,
                                   @"title":[post title],
                                   @"time": [post time],
@@ -141,6 +142,52 @@
             }
         }];
         
+    } @catch (NSException *exception) {
+        @throw exception.reason;
+    }
+}
+
+//Deletes a post by Id
+-(void)deletePost:(Post*) post{
+    @try {
+        if (FIRAuth.auth.currentUser != nil) {
+            FIRDatabaseReference* node;
+            node = [[[rootNode child:@"data"]child:@"posts"]child:post.postId];
+            [node removeValue];
+        }
+    } @catch (NSException *exception) {
+        @throw exception.reason;
+    }
+}
+
+-(void)updatePost:(Post*) post{
+    @try {
+        if (FIRAuth.auth.currentUser != nil) {
+            
+            NSDictionary* postData = [[NSDictionary alloc]initWithObjectsAndKeys:
+                                      post.postId, @"id",
+                                      post.userId, @"uid",
+                                      post.title, @"title",
+                                      post.postDescription, @"description",
+                                      post.date, @"date",
+                                      post.time, @"time",
+                                      post.address, @"address"
+                                      , nil];
+            
+            
+            [[[[rootNode child:@"data"]child:@"posts"]child:post.postId]setValue:postData withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+                if (error != nil) {
+                    //Success
+                    AppAlerts* alert = [[AppAlerts alloc]init];
+                    [alert alertShowWithTitle:@"" andBody:@"Jam successful updated"];
+                }
+                else{
+                    //Error
+                    AppAlerts* alert = [[AppAlerts alloc]init];
+                    [alert alertShowWithTitle:@"ERROR" andBody:error.localizedDescription];
+                }
+            }];
+        }
     } @catch (NSException *exception) {
         @throw exception.reason;
     }

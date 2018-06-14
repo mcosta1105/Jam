@@ -14,5 +14,6 @@
 @property (weak, nonatomic) NSString *date;
 @property (weak, nonatomic) NSString *time;
 @property (weak, nonatomic) NSString *postDescription;
-@property (weak, nonatomic) NSString *uid;
+@property (weak, nonatomic) NSString *userId;
+@property (weak, nonatomic) NSString *postId;
 @end

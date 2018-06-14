@@ -31,13 +31,22 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [loadingActivity setHidesWhenStopped:YES];
 }
-
+/*
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self prepareData];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.loadingActivity stopAnimating];
     });
+}
+*/
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self prepareData];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.loadingActivity stopAnimating];
+    });
+    [self.tableView reloadData];
 }
 
 
@@ -62,7 +71,8 @@
         [post setTime: [snapshot.value objectForKey:@"time"]];
         [post setAddress: [snapshot.value objectForKey:@"address"]];
         [post setPostDescription: [snapshot.value objectForKey:@"description"]];
-        [post setUid: [snapshot.value objectForKey:@"uid"]];
+        [post setUserId: [snapshot.value objectForKey:@"uid"]];
+        [post setPostId: [snapshot.value objectForKey:@"id"]];
         
         [self->_data addObject:post];
         [self.tableView reloadData];

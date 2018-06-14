@@ -16,7 +16,7 @@
         <!--LogIn-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="LogIn" id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController title="LogIn" hidesBottomBarWhenPushed="YES" id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -831,9 +831,9 @@
                                                 </constraints>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" textContentType="location"/>
+                                                <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Ktr-06-yEI">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Ktr-06-yEI">
                                                 <rect key="frame" x="21" y="269" width="278" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="FMR-Si-OFk"/>
@@ -843,7 +843,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Time" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="scn-so-s9x">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Time" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="scn-so-s9x">
                                                 <rect key="frame" x="21" y="320" width="278" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="278" id="Yzc-cX-DoX"/>
@@ -866,6 +866,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="15"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="updatePost:" destination="lzb-mv-0Xj" eventType="touchUpInside" id="9G5-xy-gc8"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JsT-9m-4Qo">
                                                 <rect key="frame" x="199" y="392" width="100" height="30"/>
@@ -876,6 +879,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="15"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="deletePost:" destination="lzb-mv-0Xj" eventType="touchUpInside" id="0XB-bX-CQC"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -921,12 +927,12 @@
                         <viewLayoutGuide key="safeArea" id="tQJ-WE-kxD"/>
                     </view>
                     <connections>
-                        <outlet property="addressTextField" destination="osv-ed-8px" id="3Ba-7Y-bLg"/>
-                        <outlet property="dateTextField" destination="Ktr-06-yEI" id="cR8-TK-PLX"/>
+                        <outlet property="addressTextField" destination="osv-ed-8px" id="5gl-TK-ciB"/>
+                        <outlet property="dateTextField" destination="Ktr-06-yEI" id="hHT-JI-ezh"/>
                         <outlet property="deleteBtn" destination="JsT-9m-4Qo" id="3N7-ot-zVE"/>
-                        <outlet property="descriptionTextView" destination="UuN-M1-OOA" id="e4c-cH-0rb"/>
-                        <outlet property="timeTextField" destination="scn-so-s9x" id="bwd-WN-3kS"/>
-                        <outlet property="titleTextField" destination="ylS-YO-sAw" id="FDp-YS-SPi"/>
+                        <outlet property="descriptionTextView" destination="UuN-M1-OOA" id="4eg-U5-QTx"/>
+                        <outlet property="timeTextField" destination="scn-so-s9x" id="egn-8W-a2g"/>
+                        <outlet property="titleTextField" destination="ylS-YO-sAw" id="KH4-uj-diY"/>
                         <outlet property="updateBtn" destination="hGe-9k-VPA" id="aKM-jB-fyB"/>
                     </connections>
                 </viewController>
@@ -958,12 +964,18 @@
                                 <state key="normal" title="Log Out" image="logout">
                                     <color key="titleColor" red="0.85098039219999999" green="0.26274509800000001" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="logOut:" destination="TSG-x4-bYl" eventType="touchUpInside" id="eMl-ao-lD6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="WsU-2Q-psk"/>
                     </view>
                     <navigationItem key="navigationItem" title="More" id="B3S-OW-Sni"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="logOut" id="emY-wh-IN5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hkb-Ud-5Wh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1589,5 +1601,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="TVA-uq-X6b"/>
         <segue reference="ENU-dC-d5e"/>
+        <segue reference="emY-wh-IN5"/>
     </inferredMetricsTieBreakers>
 </document>

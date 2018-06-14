@@ -23,5 +23,7 @@
 -(void)insertUser:(User *)user withUserId:(NSString *) userId;
 -(void)updateUser:(User *)user withUserId:(NSString *) userId;
 -(void)changePassword:(NSString *)password;
--(void)insertPost:(Post*)post;
+-(void)insertPost:(Post*) post;
+-(void)deletePost:(Post*) post;
+-(void)updatePost:(Post*) post;
 @end

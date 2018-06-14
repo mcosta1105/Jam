@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Gradients.h"
-
+#import "AppAlerts.h"
+@import Firebase;
 @interface MoreViewController : UIViewController
+- (IBAction)logOut:(id)sender;
 
 @end
