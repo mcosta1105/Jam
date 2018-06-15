@@ -14,12 +14,13 @@
 @import Firebase;
 
 
-@interface SearchTableViewController : UITableViewController
+@interface SearchTableViewController : UITableViewController<UISearchBarDelegate>
 {
     NSMutableArray * _data;
 }
 
 @property (nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 @end

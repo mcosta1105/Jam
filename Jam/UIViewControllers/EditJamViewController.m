@@ -81,9 +81,9 @@
     post.address = addressTextField.text;
     
     AppData* database = [[AppData alloc]init];
-    
     [database updatePost:post];
-    //[self.navigationController popViewControllerAnimated:YES];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)deletePost:(id)sender {

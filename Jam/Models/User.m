@@ -9,5 +9,5 @@
 #import "User.h"
 
 @implementation User
-@synthesize name, email, userDescription, portfolioLink;
+@synthesize name, email, userDescription, portfolioLink, img;
 @end

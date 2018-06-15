@@ -11,12 +11,17 @@
 
 @interface SearchTableViewController (){
     NSString* userId;
+    NSMutableArray* filteredPosts;
+    BOOL isFiltered;
 }
 @end
 @implementation SearchTableViewController
 @synthesize  loadingActivity;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    isFiltered = false;
+    self.searchBar.delegate = self;
     
     self.ref = [[FIRDatabase database]reference];
     userId = [FIRAuth auth].currentUser.uid;
@@ -33,15 +38,7 @@
     
     
 }
-/*
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [self prepareData];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.loadingActivity stopAnimating];
-    });
-}
- */
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self prepareData];
@@ -51,12 +48,33 @@
     [self.tableView reloadData];
 }
 
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    if (searchText.length == 0) {
+        isFiltered = false;
+    }
+    else{
+        isFiltered = true;
+        filteredPosts = [[NSMutableArray alloc]init];
+        for (Post* post in _data) {
+            NSRange titleRange = [post.title rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            NSRange descriptionRange = [post.postDescription rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            NSRange addressRange = [post.address rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            if (titleRange.location != NSNotFound) {
+                [filteredPosts addObject:post];
+            }
+            else if (descriptionRange.location != NSNotFound){
+                [filteredPosts addObject:post];
+            }
+            else if (addressRange.location != NSNotFound){
+                [filteredPosts addObject:post];
+            }
+        }
+    }
+    [self.tableView reloadData];
 }
+
+
+
 
 #pragma mark - Table view data source
 -(void)prepareData{
@@ -99,6 +117,9 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (isFiltered) {
+        return [filteredPosts count];
+    }
     return [_data count];
 }
 
@@ -108,13 +129,20 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"SearchTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
     SearchTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    
-    
-    Post *item = [_data objectAtIndex:indexPath.row];
-    cell.titleLabel.text = [item title];
-    cell.timeLabel.text = [item time];
-    cell.addressLabel.text = [item address];
-    cell.dateLabel.text = [item date];
+    if (isFiltered) {
+        Post *item = [filteredPosts objectAtIndex:indexPath.row];
+        cell.titleLabel.text = [item title];
+        cell.timeLabel.text = [item time];
+        cell.addressLabel.text = [item address];
+        cell.dateLabel.text = [item date];
+    }
+    else{
+        Post *item = [_data objectAtIndex:indexPath.row];
+        cell.titleLabel.text = [item title];
+        cell.timeLabel.text = [item time];
+        cell.addressLabel.text = [item address];
+        cell.dateLabel.text = [item date];
+    }
     
     return  cell;
     
@@ -130,7 +158,13 @@
 {
     if ([segue.identifier isEqualToString:@"toJamDetails"])
     {
-        Post *post = [_data objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        Post *post = [[Post alloc]init];
+        if (isFiltered) {
+            post = [filteredPosts objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        }
+        else{
+            post = [_data objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+        }
         JamDetailsViewController *viewController = segue.destinationViewController;
         viewController.dataSegue = post;
     }

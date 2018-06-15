@@ -10,7 +10,7 @@
 
 @implementation AppData
 
-@synthesize rootNode, usersNode, dataNode, USER_ID;
+@synthesize rootNode, usersNode, dataNode, USER_ID, storageRef;
 //Constructor
 -(id)init{
     
@@ -162,6 +162,7 @@
 
 -(void)updatePost:(Post*) post{
     @try {
+        
         if (FIRAuth.auth.currentUser != nil) {
             
             NSDictionary* postData = [[NSDictionary alloc]initWithObjectsAndKeys:
@@ -174,12 +175,12 @@
                                       post.address, @"address"
                                       , nil];
             
-            
             [[[[rootNode child:@"data"]child:@"posts"]child:post.postId]setValue:postData withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
-                if (error != nil) {
+                if (error == nil) {
                     //Success
                     AppAlerts* alert = [[AppAlerts alloc]init];
                     [alert alertShowWithTitle:@"" andBody:@"Jam successful updated"];
+                    
                 }
                 else{
                     //Error
@@ -189,43 +190,61 @@
             }];
         }
     } @catch (NSException *exception) {
-        @throw exception.reason;
+        AppAlerts* alert = [[AppAlerts alloc]init];
+        [alert alertShowWithTitle:@"ERROR" andBody:exception.reason];
     }
 }
 
-/*
-//Insert Jam Post
--(void)insertPost:(Post*)post{
+
+-(NSString*)insertImg:(UIImageView*)img{
     @try {
-        NSString *userID = [FIRAuth auth].currentUser.uid;
         
-        NSString *postPath = [NSString stringWithFormat:@"users/%@/posts", userID];
+        CGFloat compressionQuality = 0.8;
+        USER_ID = [FIRAuth auth].currentUser.uid;
+        User *user = [[User alloc] init];
         
-        NSString *key = [[rootNode child:postPath] childByAutoId].key;
+        //Semaphore to execute async func
+        dispatch_semaphore_t sema = dispatch_semaphore_create(0);
         
-        NSDictionary* postDic = @{
-                                  @"title":[post title],
-                                  @"time": [post time],
-                                  @"address": [post address],
-                                  @"date": [post date],
-                                  @"description": [post postDescription]
-                                  };
-        NSDictionary *childUpdate = @{[NSString stringWithFormat:@"%@/%@", postPath, key]: postDic};
+        if (img.image != nil) {
+            //Image info
+            NSString *imageID = [[NSUUID UUID] UUIDString];
+            NSString *imageName = [NSString stringWithFormat:@"%@ %@",[NSString stringWithFormat:@"%@", USER_ID],[NSString stringWithFormat:@"/%@.jpg",imageID]];
+            
+            
+            FIRStorage *storage = [FIRStorage storage];
+            storageRef = [storage referenceForURL:@"gs://jamapp-edc6c.appspot.com"];
+            FIRStorageReference *imageRef = [storageRef child:imageName];
+            FIRStorageMetadata *metadata = [[FIRStorageMetadata alloc]init];
+            
+            metadata.contentType = @"image/jpeg";
+            NSData *imageData = UIImageJPEGRepresentation(img.image, compressionQuality);
+            
+            [imageRef putData:imageData metadata:metadata completion:^(FIRStorageMetadata * _Nullable metadata, NSError * _Nullable error) {
+                if (error == nil) {
+                    //Get IMG URL
+                    [imageRef downloadURLWithCompletion:^(NSURL * _Nullable URL, NSError * _Nullable error) {
+                        
+                        user.img = URL.absoluteString;
+                        
+                        //dispatch semaphore
+                        dispatch_semaphore_signal(sema);
+                    }];
+                }
+                else{
+                    AppAlerts* alert = [[AppAlerts alloc]init];
+                    [alert alertShowWithTitle:@"ERROR" andBody:error.localizedDescription];
+                }
+            }];
+        }
+        while (dispatch_semaphore_wait(sema, DISPATCH_TIME_NOW)) {
+            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+        }
         
-        [rootNode updateChildValues:childUpdate withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
-            if (error == nil) {
-                AppAlerts* alert = [[AppAlerts alloc]init];
-                [alert alertShowWithTitle:@"" andBody:@"New post succesfully added"];
-            }
-            else{
-                AppAlerts* alert = [[AppAlerts alloc]init];
-                [alert alertShowWithTitle:@"ERROR" andBody:error.localizedDescription];
-            }
-        }];
-        
+        return user.img;
     } @catch (NSException *exception) {
-        @throw exception.reason;
+        AppAlerts* alert = [[AppAlerts alloc]init];
+        [alert alertShowWithTitle:@"ERROR" andBody:exception.reason];
     }
 }
-*/
 @end

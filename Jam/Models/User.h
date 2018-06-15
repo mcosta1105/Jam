@@ -14,5 +14,6 @@
 @property (nonatomic) NSString* email;
 @property (nonatomic) NSString* portfolioLink;
 @property (nonatomic) NSString* userDescription;
+@property (nonatomic) NSString* img;
 
 @end

@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface Post : NSObject
-@property (weak, nonatomic) NSString *title;
-@property (weak, nonatomic) NSString *address;
-@property (weak, nonatomic) NSString *date;
-@property (weak, nonatomic) NSString *time;
-@property (weak, nonatomic) NSString *postDescription;
-@property (weak, nonatomic) NSString *userId;
-@property (weak, nonatomic) NSString *postId;
+@property (nonatomic) NSString *title;
+@property (nonatomic) NSString *address;
+@property (nonatomic) NSString *date;
+@property (nonatomic) NSString *time;
+@property (nonatomic) NSString *postDescription;
+@property (nonatomic) NSString *userId;
+@property (nonatomic) NSString *postId;
 @end
