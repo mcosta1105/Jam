@@ -18,20 +18,18 @@
 @interface SignUPViewController : UIViewController
 
 
-//Buttons
+//Properties
 @property (weak, nonatomic) IBOutlet UIButton *signupBtn;
 @property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
-//Activity
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
-//Inputs
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPasswordTextField;
 @property (weak, nonatomic) IBOutlet UISwitch *termsSwitch;
 
+//Methods
 - (IBAction)SignUp:(id)sender;
-
 -(void)alertShowWithTitle:(NSString *)titleInp andBody:(NSString *)bodyInp;
 
 @end

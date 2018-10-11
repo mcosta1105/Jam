@@ -13,11 +13,10 @@
 #import "User.h"
 #import "AppAlerts.h"
 
-@interface MyProfileViewController : UIViewController<UITextViewDelegate>
-
+@interface MyProfileViewController : UIViewController<UITextViewDelegate, UIImagePickerControllerDelegate, UIPickerViewDelegate, UINavigationControllerDelegate>
+//Properties
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UIButton *changePicBtn;
-
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -27,9 +26,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *saveBtn;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
 
-
+//Methods
 - (IBAction)save:(id)sender;
 - (IBAction)changePassword:(id)sender;
+- (IBAction)changePicture:(id)sender;
 
 
 @end

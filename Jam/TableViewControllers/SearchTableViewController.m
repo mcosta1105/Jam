@@ -17,19 +17,23 @@
 @end
 @implementation SearchTableViewController
 @synthesize  loadingActivity;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //Prepare searchbar
     isFiltered = false;
     self.searchBar.delegate = self;
     
+    //Prepare firebase authentication
     self.ref = [[FIRDatabase database]reference];
     userId = [FIRAuth auth].currentUser.uid;
+    
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    
+    //Set loading activity
     loadingActivity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     loadingActivity.center = self.view.center;
     [self.tableView addSubview:loadingActivity];
@@ -41,18 +45,25 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
     [self prepareData];
+    
+    //Delay loading activity
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.loadingActivity stopAnimating];
     });
+    
     [self.tableView reloadData];
 }
 
+//Searchbar implementation
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    //check is serachbar is empty
     if (searchText.length == 0) {
         isFiltered = false;
     }
     else{
+        //If not take input and perform search
         isFiltered = true;
         filteredPosts = [[NSMutableArray alloc]init];
         for (Post* post in _data) {
@@ -76,7 +87,7 @@
 
 
 
-#pragma mark - Table view data source
+//Prepare data for view
 -(void)prepareData{
     [loadingActivity startAnimating];
     
@@ -87,6 +98,7 @@
     
     _data = [[NSMutableArray alloc]init];
     
+    //Get data from firebase
     [query observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         Post* post = [[Post alloc]init];
         [post setTitle: [snapshot.value objectForKey:@"title"]];
@@ -96,6 +108,7 @@
         [post setPostDescription: [snapshot.value objectForKey:@"description"]];
         [post setUserId: [snapshot.value objectForKey:@"uid"]];
         [post setPostId: [snapshot.value objectForKey:@"id"]];
+        
         
         [self->_data addObject:post];
         [self.tableView reloadData];
@@ -154,11 +167,14 @@
     [self performSegueWithIdentifier:@"toJamDetails" sender:self];
 }
 
+//Take cell value and set on segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    //check if segue is correct
     if ([segue.identifier isEqualToString:@"toJamDetails"])
     {
         Post *post = [[Post alloc]init];
+        //Check if list has been filtered
         if (isFiltered) {
             post = [filteredPosts objectAtIndex:self.tableView.indexPathForSelectedRow.row];
         }
@@ -170,58 +186,5 @@
     }
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
-#pragma mark - Navigation
-/*
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-        [segue destinationViewController];
-    // Pass the selected object to the new view controller.
-}
-*/
 @end

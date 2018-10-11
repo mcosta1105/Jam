@@ -17,6 +17,6 @@
     NSMutableArray * _data;
 }
 @property (nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
-
 @property (strong, nonatomic) FIRDatabaseReference *ref;
+
 @end

@@ -12,5 +12,4 @@
 @import Firebase;
 @interface MoreViewController : UIViewController
 - (IBAction)logOut:(id)sender;
-
 @end

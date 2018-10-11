@@ -12,8 +12,8 @@
 #import "AppAlerts.h"
 #import "Post.h"
 
-@interface AddJamViewController : UIViewController<UITextViewDelegate>
-
+@interface AddJamViewController : UIViewController<UITextViewDelegate, UITextFieldDelegate>
+//Properties
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 @property (weak, nonatomic) IBOutlet UIButton *addBtn;
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *dateTextField;
 @property (weak, nonatomic) IBOutlet UITextField *timeTextField;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
+//Methods
 - (IBAction)addJam:(id)sender;
 
 @end

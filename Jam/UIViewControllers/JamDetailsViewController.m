@@ -14,7 +14,7 @@
 @end
 
 @implementation JamDetailsViewController
-@synthesize messageBtn, dataSegue, nameLabel, addressLabel, dateLabel, timeLabel, titleLabel, descriptionTextView, user;
+@synthesize messageBtn, dataSegue, nameLabel, addressLabel, dateLabel, timeLabel, titleLabel, descriptionTextView, user, profileBtn;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,6 +55,9 @@
         timeLabel.text = dataSegue.time;
         titleLabel.text = dataSegue.title;
         descriptionTextView.text = dataSegue.postDescription;
+        NSData *imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: self.user.img]];
+        [profileBtn setBackgroundImage:[UIImage imageWithData:imageData] forState:UIControlStateNormal];
+        
         
     }
 }
@@ -78,6 +81,7 @@
                  [userData setEmail: [firebaseData valueForKey:@"email"]];
                  [userData setPortfolioLink: [firebaseData valueForKey:@"portfolio"]];
                  [userData setUserDescription: [firebaseData valueForKey:@"description"]];
+                 [userData setImg: [firebaseData valueForKey:@"img"]];
                  
                  self.user = userData;
                  
@@ -101,6 +105,31 @@
     [self performSegueWithIdentifier:@"toProfile" sender:self];
 }
 
+- (IBAction)contact:(id)sender {
+    @try {
+        //Construct mail compose view and set properties
+        MFMailComposeViewController* mailComposer = [[MFMailComposeViewController alloc]init];
+        mailComposer.mailComposeDelegate = self;
+        
+        //Check if is able to send email
+        if ([MFMailComposeViewController canSendMail]) {
+            [mailComposer setSubject:dataSegue.title];
+            [mailComposer setToRecipients:@[user.email]];
+            [self presentViewController:mailComposer animated:YES completion:nil];
+        }
+    } @catch (NSException *exception) {
+        AppAlerts* alert = [[AppAlerts alloc]init];
+        [alert alertShowWithTitle:@"ERROR" andBody:exception.reason];
+    }
+}
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
+    //Dismiss the mail composer view controller
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+//Set object on segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"toProfile"])
@@ -109,13 +138,4 @@
         viewController.dataSegue = self.user;
     }
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 @end

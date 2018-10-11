@@ -21,6 +21,6 @@
 
 @property (nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-
 @property (strong, nonatomic) FIRDatabaseReference *ref;
+
 @end

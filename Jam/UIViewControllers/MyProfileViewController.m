@@ -15,7 +15,7 @@
 @end
 
 @implementation MyProfileViewController
-@synthesize changePicBtn, changePasswordBtn, saveBtn, descriptionTextView, nameTextField, emailTextField, passwordTextField, portfolioLink, loadingActivity;
+@synthesize changePicBtn, changePasswordBtn, saveBtn, descriptionTextView, nameTextField, emailTextField, passwordTextField, portfolioLink, loadingActivity, profileImage;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,6 +23,7 @@
     [self setGradients];
     [self setIcons];
     
+    //Set text view placeholder
     self.descriptionTextView.delegate = self;
     descriptionTextView.layer.borderColor = [[UIColor colorWithRed:(200/255.0) green:(201/255.0) blue:(202/255.0) alpha:0.7]CGColor];
     descriptionTextView.layer.borderWidth = 1;
@@ -31,6 +32,7 @@
 
 
 -(void)viewWillAppear:(BOOL)animated{
+    
     [self loadData];
 }
 
@@ -68,6 +70,7 @@
     [web setIcon:@"link" forTextField:portfolioLink];
 }
 
+//Textview
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
     if ([textView.text isEqualToString:@"Description..."]) {
@@ -86,6 +89,7 @@
     [textView resignFirstResponder];
 }
 
+//get data to display on view
 -(void)loadData{
     @try {
         //Add loading activity
@@ -106,12 +110,19 @@
                         
                         
                         NSDictionary* firebaseData = snapshot.value;
-                        
+                        //Set object
                         [user setName: [firebaseData valueForKey:@"name"]];
                         [user setEmail: [firebaseData valueForKey:@"email"]];
                         [user setPortfolioLink: [firebaseData valueForKey:@"portfolio"]];
                         [user setUserDescription:[firebaseData valueForKey:@"description"]];
+                        [user setImg: [firebaseData valueForKey:@"img"]];
                         
+                        //Set image
+                        if (![user.img isEqualToString:@""]) {
+                            NSData *imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: user.img]];
+                            [self.profileImage setImage:[UIImage imageWithData:imageData]];
+                        }
+                        //Set view
                         self.nameTextField.text = user.name;
                         self.emailTextField.text = user.email;
                         self.portfolioLink.text = user.portfolioLink;
@@ -149,7 +160,7 @@
             [alert alertShowWithTitle:@"ERROR" andBody:@"Description"];
         }
         else{
-            
+            //Prepare object
             User* user = [[User alloc]init];
             user.name = nameTextField.text;
             user.portfolioLink = portfolioLink.text;
@@ -161,6 +172,8 @@
             }
             
             AppData* database = [[AppData alloc]init];
+            user.img = [database insertImg:profileImage];
+            
             [database updateUser:user withUserId:userId];
         }
     } @catch (NSException *exception) {
@@ -240,5 +253,52 @@
         [alert alertShowWithTitle:@"ERROR" andBody:exception.reason];
     }
     
+}
+
+//Change uer picture
+- (IBAction)changePicture:(id)sender {
+    @try{
+            UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        
+            imagePicker.delegate = self;
+        
+            //Set Camera type for the source
+            [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+            
+            //Enable editing photo taken
+            [imagePicker setAllowsEditing:YES];
+            
+            //Present Camera
+            [self presentViewController:imagePicker animated:YES completion:nil];
+       
+    }
+    @catch(NSException *ex){
+        AppAlerts* alert = [[AppAlerts alloc]init];
+        [alert alertShowWithTitle:@"ERROR" andBody:ex.reason];
+    }
+}
+
+//Pick image from device
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    @try{
+        UIImage *image = info[UIImagePickerControllerEditedImage];
+        [profileImage setImage:image];
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    @catch(NSException *ex){
+        AppAlerts* alert = [[AppAlerts alloc]init];
+        [alert alertShowWithTitle:@"ERROR" andBody:ex.reason];
+    }
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    @try{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    @catch(NSException *ex){
+        AppAlerts* alert = [[AppAlerts alloc]init];
+        [alert alertShowWithTitle:@"ERROR" andBody:ex.reason];
+    }
 }
 @end

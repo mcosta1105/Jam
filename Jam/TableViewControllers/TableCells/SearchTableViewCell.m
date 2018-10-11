@@ -21,10 +21,5 @@
     // Configure the view for the selected state
 }
 
-/*
--(void)layoutSubviews{
-    self.contentView.frame = UIEdgeInsetsInsetRect(self.contentView.frame, UIEdgeInsetsMake(5, 5, 5, 5));
-}
- */
 
 @end

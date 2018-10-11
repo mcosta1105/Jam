@@ -62,26 +62,5 @@
     [rootViewController presentViewController:alert animated:YES completion:nil];
 }
 
-//Alert with input
--(void)displayInputAlert: (NSString *) fieldName{
-    
-    UIAlertController *alert = [UIAlertController
-                                alertControllerWithTitle: @"Password"
-                                message: fieldName
-                                preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *okButton = [UIAlertAction actionWithTitle: @"Ok"
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action)
-                               {
-                                   [alert dismissViewControllerAnimated:YES completion:nil];
-                               }];
-    
-    //Add ok button
-    [alert addAction: okButton];
-    
-    //Display Alert
-    UIViewController *rootViewController = self.topViewController;
-    [rootViewController presentViewController:alert animated:YES completion:nil];
-}
+
 @end

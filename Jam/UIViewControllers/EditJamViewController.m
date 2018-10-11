@@ -19,23 +19,44 @@
     // Do any additional setup after loading the view.
     [self setGradients];
     
+    //Set textview placeholder
     descriptionTextView.layer.borderColor = [[UIColor colorWithRed:(200/255.0) green:(201/255.0) blue:(202/255.0) alpha:0.7]CGColor];
     descriptionTextView.layer.borderWidth = 1;
     descriptionTextView.layer.cornerRadius = 5;
     descriptionTextView.textColor = [UIColor darkGrayColor];
-    
-    //[self configureView];
     
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self configureView];
+    UIDatePicker *datePicker = [[UIDatePicker alloc]init];
+    [datePicker setDate:[NSDate date]];
+    [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
+    [self.dateTextField setInputView:datePicker];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+//Updates textfield with picker value
+-(void)updateTextField:(id)sender
+{
+    UIDatePicker *picker = (UIDatePicker*)self.dateTextField.inputView;
+    self.dateTextField.text = [NSString stringWithFormat:@"%@",[self formatDate:picker.date]];
+}
+
+
+//Formate input date
+- (NSString *)formatDate:(NSDate *)date
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    [dateFormatter setDateFormat:@"dd'/'MM'/'yyyy"];
+    NSString *formattedDate = [dateFormatter stringFromDate:date];
+    return formattedDate;
 }
 
 -(void)setGradients{
@@ -58,7 +79,7 @@
 }
 
 
-
+//set view up
 - (void)configureView {
     if(self.dataSegue) {
         titleTextField.text = dataSegue.title;
@@ -69,6 +90,7 @@
     }
 }
 
+//Update jam post
 - (IBAction)updatePost:(id)sender {
     Post* post = [[Post alloc]init];
     
@@ -86,6 +108,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+//Delete Jam Post
 - (IBAction)deletePost:(id)sender {
     AppData* database = [[AppData alloc]init];
     [database deletePost:dataSegue];

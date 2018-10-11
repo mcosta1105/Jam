@@ -27,19 +27,13 @@
     //Hide Activity Indicator
     loadingActivity.hidden = YES;
     
+    //Check if default app is up
     if(!FIRApp.defaultApp){
         [FIRApp configure];
     }
 }
 
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-//Login
+//Perform Login
 - (IBAction)Login:(id)sender {
     @try {
         //Login form validation

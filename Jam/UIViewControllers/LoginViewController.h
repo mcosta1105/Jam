@@ -14,14 +14,12 @@
 @import Firebase;
 
 @interface LoginViewController : UIViewController
-
+//Properties
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
-
-
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
-
+//Methods
 - (IBAction)Login:(id)sender;
 
 

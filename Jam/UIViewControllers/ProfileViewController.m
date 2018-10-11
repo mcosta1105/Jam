@@ -13,7 +13,7 @@
 @end
 
 @implementation ProfileViewController
-@synthesize profileImg, dataSegue, nameLabel, descriptionTextView, portfolioLable;
+@synthesize profileImg, dataSegue, nameLabel, descriptionTextView, portfolioBtn, portfolioLable;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,6 +27,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+//Set background gradients
 -(void)setGradients{
     //Background gradient
     CAGradientLayer *gradientLayer = [Gradients backgroundGradient];
@@ -34,12 +35,37 @@
     [self.view.layer insertSublayer:gradientLayer atIndex:0];
 }
 
+//Set data to view
 -(void)configureView{
     if (self.dataSegue) {
         nameLabel.text = dataSegue.name;
         descriptionTextView.text = dataSegue.userDescription;
-        portfolioLable.text = dataSegue.portfolioLink;
+        NSData *imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: dataSegue.img]];
+        [profileImg setImage:[UIImage imageWithData:imageData]];
+        [portfolioBtn setTitle:dataSegue.portfolioLink forState:UIControlStateNormal];
     }
 }
 
+//Open external link
+- (IBAction)openPortfolio:(id)sender {
+    @try {
+        UIApplication *application = [UIApplication sharedApplication];
+        NSURL *URL = [[NSURL alloc]init];
+        
+        //Check if porftolio link has https://
+        NSRange range = [dataSegue.portfolioLink rangeOfString:@"https://" options:NSCaseInsensitiveSearch];
+        if (range.location != NSNotFound) {
+            URL = [NSURL URLWithString:dataSegue.portfolioLink];
+        }
+        else{
+            //if not, add it
+            URL = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@",dataSegue.portfolioLink]];
+        }
+        
+        [application openURL:URL options:@{} completionHandler:nil];
+    } @catch (NSException *exception) {
+        AppAlerts* alert = [[AppAlerts alloc]init];
+        [alert alertShowWithTitle:@"ERROR" andBody:exception.reason];
+    }
+}
 @end

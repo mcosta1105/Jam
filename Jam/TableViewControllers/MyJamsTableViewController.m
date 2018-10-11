@@ -16,54 +16,51 @@
 
 @implementation MyJamsTableViewController
 @synthesize loadingActivity;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //Prepare firebase
     self.ref = [[FIRDatabase database]reference];
     userId = [FIRAuth auth].currentUser.uid;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    //Set loading activity
     loadingActivity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     loadingActivity.center = self.view.center;
     [self.tableView addSubview:loadingActivity];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [loadingActivity setHidesWhenStopped:YES];
 }
-/*
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [self prepareData];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.loadingActivity stopAnimating];
-    });
-}
-*/
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
     [self prepareData];
+    
+    //Delay loading activity
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.loadingActivity stopAnimating];
     });
     [self.tableView reloadData];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
+//Get data from firebase to set view
 -(void)prepareData{
+    //Start loading activity
     [self.loadingActivity startAnimating];
+    
     //Firebase Query
     NSString* jamPostPath = [NSString stringWithFormat:@"data/posts"];
     
+    //Query to get data from firebase
     FIRDatabaseQuery *query = [[[self.ref child:jamPostPath] queryOrderedByChild:@"uid"]queryEqualToValue:userId];
     
     _data = [[NSMutableArray alloc]init];
     
+    //Get data from firebase and pass to object
     [query observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         Post* post = [[Post alloc]init];
         [post setTitle: [snapshot.value objectForKey:@"title"]];
@@ -88,7 +85,7 @@
     }];
 }
 
-#pragma mark - Table view data source
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -98,21 +95,19 @@
     return [_data count];
 }
 
-
+//Set data to cells
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
  static NSString *cellIdentifier = @"myCell";
- 
- [self.tableView registerNib:[UINib nibWithNibName:@"MyJamsTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
     
- MyJamsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
- 
- 
- 
- Post *item = [_data objectAtIndex:indexPath.row];
- cell.postTitleLabel.text = [item title];
- cell.timeLabel.text = [item time];
- cell.addressLabel.text = [item address];
- cell.dateLabel.text = [item date];
+     [self.tableView registerNib:[UINib nibWithNibName:@"MyJamsTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
+    
+     MyJamsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+     Post *item = [_data objectAtIndex:indexPath.row];
+     cell.postTitleLabel.text = [item title];
+     cell.timeLabel.text = [item time];
+     cell.addressLabel.text = [item address];
+     cell.dateLabel.text = [item date];
  
  return  cell;
 }
@@ -122,8 +117,10 @@
     [self performSegueWithIdentifier:@"toEditJam" sender:self];
 }
 
+//Get data from cell and set on segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    //check if segue is correct
     if ([segue.identifier isEqualToString:@"toEditJam"])
     {
         Post *post = [_data objectAtIndex:self.tableView.indexPathForSelectedRow.row];
@@ -132,38 +129,6 @@
     }
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 @end

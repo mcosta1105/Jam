@@ -32,6 +32,7 @@
     [self.view.layer insertSublayer:gradientLayer atIndex:0];
 }
 
+//Perform log out
 - (IBAction)logOut:(id)sender {
     @try{
         NSError *error;
